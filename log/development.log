@@ -26557,3 +26557,55 @@ Processing by Api::V1::IdeasController#upvote as */*
   [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 2], ["updated_at", "2016-06-28 22:53:21.528950"], ["id", 98]]
   [1m[35m (2.0ms)[0m  commit transaction
 Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 17:01:58 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 607ms (Views: 585.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 17:01:59 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 25ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ideas.self-4a6aa3bfa9a7078460f69c424878f20beeffa9b2dc69b028c4c3ce9274407663.js?body=1" for 127.0.0.1 at 2016-06-28 17:02:00 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 17:02:00 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (1.3ms)[0m  SELECT "ideas".* FROM "ideas"
+Completed 200 OK in 17ms (Views: 13.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 17:02:04 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"adsfsda", "body"=>"asdfsdd"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'adsfsda' LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "adsfsda"], ["body", "asdfsdd"], ["created_at", "2016-06-28 23:02:04.395263"], ["updated_at", "2016-06-28 23:02:04.395263"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 35ms (Views: 0.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/v1/upvote/102" for 127.0.0.1 at 2016-06-28 17:02:06 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"102", "idea"=>{}}
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 102]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 1], ["updated_at", "2016-06-28 23:02:06.343634"], ["id", 102]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/v1/upvote/102" for 127.0.0.1 at 2016-06-28 17:02:06 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"102", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 102]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 2], ["updated_at", "2016-06-28 23:02:06.898539"], ["id", 102]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.9ms)
