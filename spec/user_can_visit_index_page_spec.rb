@@ -5,7 +5,6 @@ RSpec.feature "Idea Index", :type => :feature do
     idea = Idea.create(title: "Freeform", body: "String")
     visit root_path
 
-    expect(current_path).to eq("/pages/index")
     expect(page).to have_text("Freeform")
     expect(page).to have_text("String")
     expect(page).to have_text("swill")

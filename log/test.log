@@ -1,2 +1,211 @@
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
   [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "ideas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" varchar, "quality" integer DEFAULT 0, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160628080322')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas"  ORDER BY "ideas"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ideas" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-06-28 08:14:10.932055"], ["updated_at", "2016-06-28 08:14:10.932055"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "ideas" SET "title" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["title", "an arbitrary value"], ["updated_at", "2016-06-28 08:14:10.934095"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'an arbitrary value' LIMIT 1[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'AN ARBITRARY VALUE' LIMIT 1
+  [1m[36m (1.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'Freeform' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Freeform"], ["body", "String"], ["created_at", "2016-06-28 08:14:10.949513"], ["updated_at", "2016-06-28 08:14:10.949513"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas"  ORDER BY "ideas"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ideas" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-06-28 08:14:36.857219"], ["updated_at", "2016-06-28 08:14:36.857219"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "ideas" SET "title" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["title", "an arbitrary value"], ["updated_at", "2016-06-28 08:14:36.858689"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'an arbitrary value' LIMIT 1[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'AN ARBITRARY VALUE' LIMIT 1
+  [1m[36m (1.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'Freeform' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Freeform"], ["body", "String"], ["created_at", "2016-06-28 08:14:36.871540"], ["updated_at", "2016-06-28 08:14:36.871540"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pages/index" for 127.0.0.1 at 2016-06-28 02:14:36 -0600
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas"  ORDER BY "ideas"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ideas" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-06-28 08:15:25.188668"], ["updated_at", "2016-06-28 08:15:25.188668"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "ideas" SET "title" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["title", "an arbitrary value"], ["updated_at", "2016-06-28 08:15:25.190313"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'an arbitrary value' LIMIT 1[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'AN ARBITRARY VALUE' LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'Freeform' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Freeform"], ["body", "String"], ["created_at", "2016-06-28 08:15:25.203912"], ["updated_at", "2016-06-28 08:15:25.203912"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas"  ORDER BY "ideas"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ideas" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-06-28 08:17:23.451582"], ["updated_at", "2016-06-28 08:17:23.451582"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "ideas" SET "title" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["title", "an arbitrary value"], ["updated_at", "2016-06-28 08:17:23.452952"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'an arbitrary value' LIMIT 1[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'AN ARBITRARY VALUE' LIMIT 1
+  [1m[36m (1.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'Freeform' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Freeform"], ["body", "String"], ["created_at", "2016-06-28 08:17:23.468061"], ["updated_at", "2016-06-28 08:17:23.468061"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/pages/index" for 127.0.0.1 at 2016-06-28 02:17:23 -0600
+  [1m[35m (1.3ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas"  ORDER BY "ideas"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ideas" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-06-28 08:17:53.797241"], ["updated_at", "2016-06-28 08:17:53.797241"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "ideas" SET "title" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["title", "an arbitrary value"], ["updated_at", "2016-06-28 08:17:53.798656"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'an arbitrary value' LIMIT 1[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'AN ARBITRARY VALUE' LIMIT 1
+  [1m[36m (1.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'Freeform' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Freeform"], ["body", "String"], ["created_at", "2016-06-28 08:17:53.812319"], ["updated_at", "2016-06-28 08:17:53.812319"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2016-06-28 02:17:53 -0600
+  [1m[35m (1.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas"  ORDER BY "ideas"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ideas" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-06-28 08:18:26.890169"], ["updated_at", "2016-06-28 08:18:26.890169"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "ideas" SET "title" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["title", "an arbitrary value"], ["updated_at", "2016-06-28 08:18:26.891600"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'an arbitrary value' LIMIT 1[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'AN ARBITRARY VALUE' LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'Freeform' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Freeform"], ["body", "String"], ["created_at", "2016-06-28 08:18:26.906467"], ["updated_at", "2016-06-28 08:18:26.906467"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2016-06-28 02:18:26 -0600
+  [1m[35m (1.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas"  ORDER BY "ideas"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ideas" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-06-28 08:18:39.540157"], ["updated_at", "2016-06-28 08:18:39.540157"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "ideas" SET "title" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["title", "an arbitrary value"], ["updated_at", "2016-06-28 08:18:39.541560"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'an arbitrary value' LIMIT 1[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'AN ARBITRARY VALUE' LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'Freeform' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Freeform"], ["body", "String"], ["created_at", "2016-06-28 08:18:39.555449"], ["updated_at", "2016-06-28 08:18:39.555449"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2016-06-28 02:18:39 -0600
+Processing by PagesController#index as HTML
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+  [1m[35m (1.3ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas"  ORDER BY "ideas"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ideas" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-06-28 08:19:03.218997"], ["updated_at", "2016-06-28 08:19:03.218997"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "ideas" SET "title" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["title", "an arbitrary value"], ["updated_at", "2016-06-28 08:19:03.221167"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'an arbitrary value' LIMIT 1[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'AN ARBITRARY VALUE' LIMIT 1
+  [1m[36m (1.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'Freeform' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Freeform"], ["body", "String"], ["created_at", "2016-06-28 08:19:03.235296"], ["updated_at", "2016-06-28 08:19:03.235296"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2016-06-28 02:19:03 -0600
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 925ms (Views: 917.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.4ms)[0m  rollback transaction

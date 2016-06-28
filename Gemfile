@@ -31,6 +31,7 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'unicorn'
 gem 'pry-rails'
 gem 'byebug'
+gem 'bootstrap-sass', '~> 3.3.5.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
