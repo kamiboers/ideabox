@@ -1,3 +1,14 @@
+<%= div_for task do %>
+
+  <h3><%= task.name %></h3>
+
+  <ul>
+   <li><%= link_to "Edit Task", new_task_path, remote: true %></li>
+   <li><%= link_to "Mark Complete", complete_path, remote: true %></li>
+   <li><%= link_to "Delete Task", task, remote: true, method: :delete %></li>
+  </ul>
+<% end %>
+
 <% @ideas.each do |idea| %>
   <tr>
     <td><div class="editable"><%= idea.title %></div></td>
