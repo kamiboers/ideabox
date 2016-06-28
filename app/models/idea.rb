@@ -5,10 +5,12 @@ class Idea < ActiveRecord::Base
 
   def thumbs_up
     increment!(:quality)
+    return self
   end
 
   def thumbs_down
     decrement!(:quality)
+    return self
   end
 
 end

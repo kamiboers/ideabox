@@ -9,15 +9,33 @@ class Api::V1::IdeasController < Api::V1::BaseController
       render json: idea if idea.save
   end
 
-  # def update
-  #   @idea = Idea.find_by(id: params[:id])
-  #   render json: @idea.update!(idea_params)
-  # end
+  def update
+    binding.pry
+    @idea = Idea.find_by(id: params[:id])
+    if params[:change] == "thumbs-up"
+      @idea.thumbs-up
+    elsif params[:change] == "thumbs-down"
+      @idea.thumbs-up
+    else
+      render json: @idea.update!(idea_params)
+    end
+  end
 
-  # def destroy
-  #   @idea = Idea.find_by(id: params[:id])
-  #   @idea.destroy
-  # end
+  def upvote
+    @idea = Idea.find_by(id: params[:id])
+    render json: @idea.thumbs_up
+  end
+
+  def downvote
+    @idea = Idea.find_by(id: params[:id])
+    render json: @idea.thumbs_down
+  end
+
+
+  def destroy
+    @idea = Idea.find_by(id: params[:id])
+    render json: @idea.destroy
+  end
 
 
 

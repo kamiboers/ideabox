@@ -11,41 +11,46 @@ $(document).ready(function() {
 	        url: '/api/v1/ideas',
 	        data: ideaAttributes,
 	        success: function(idea) {
-	        	$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td>" + idea.title + "</td><td>"  + idea.body + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td>"+ "<td><a href='#' class='edit-btn' id='edit_" + idea.id + "'><i class='fa fa-edit fa-2x'></i></a><a href='#' class='up-btn' id='up_" + idea.id + "'><i class='fa fa-thumbs-o-up fa-2x'></i></a><a href='#' class='down-btn' id='down_" + idea.id + "'><i class='fa fa-thumbs-o-down fa-2x'></i></a></td><td><a href='#' class='deleteButton' id='delete_" + idea.id + "'><i class='fa fa-times-circle-o fa-2x deleteButton'></i></a></td></tr>");
+	        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td>" + idea.title + "</td><td>"  + jQuery.trim(idea.body).substring(0, 99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td></tr>");
 	        }
   		});
 
 	});
 
 
-  // 	$('.deleteButton').click(function(){
-		// $.ajax({
-	 //        type: 'DELETE',
-	 //        url: '/api/v1/idea/:id',
-	 //        data: {id: '82'},
-	 //        success: function(){
-	 //        	$("tr#idea_" + idea.id).fadeOut('slow');
-	 //        }
-	 //        });  	})
-
-  	// document.getElementsByClassName("deleteButton").addEventListener('click', function(){
-  	// 		var value = document.querySelector('tr').id;
-  	// 		alert(value); 
-	  //   }); 
+  	$('button.deleteButton').click(function(){
+		$.ajax({
+	        type: 'DELETE',
+	        url: '/api/v1/idea/:id',
+	        data: {id: '82'},
+	        success: function(){
+	        	$("tr#idea_" + idea.id).fadeOut('slow');
+	        }
+	        });  	})
 
 
-var classname = document.getElementsByClassName("deleteButton");
 
-var myFunction = function() {
-    var attribute = this.getAttribute("id");
-    alert(attribute);
-};
+$('.idea-box').delegate('.deleteButton', 'click', function() {
+    var ideaId = $(this).attr('id').substr(5);
+    	deleteIdea(ideaId);
+  });
 
-for (var i = 0; i < classname.length; i++) {
-    classname[i].addEventListener('click', myFunction, false);
-}
+$('.idea-box').delegate('.upButton', 'click', function() {
+    var ideaId = $(this).attr('id').substr(3);
+    	upvoteIdea(ideaId);
+  });
 
-	});
+
+$('.idea-box').delegate('.downButton', 'click', function() {
+    var ideaId = $(this).attr('id').substr(5);
+    	downvoteIdea(ideaId);
+  });
+
+});
+
+
+
+// $('.idea-box').prepend('<%= j render partial: 'idea', locals: {idea: @idea} %>');
 
 function getIdeas(){
 	$.ajax({
@@ -53,28 +58,42 @@ function getIdeas(){
 	        url: '/api/v1/ideas',
 	        success: function(ideas) {
 	        	ideas.forEach(function(idea){
-	        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td>" + idea.title + "</td><td>"  + idea.body + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td>"+ "<td><a href='#' class='' id='edit_" + idea.id + "'><i class='fa fa-edit fa-2x'></i></a><a href='#' class='up-btn' id='up_" + idea.id + "'><i class='fa fa-thumbs-o-up fa-2x'></i></a><a href='#' class='down-btn' id='down_" + idea.id + "'><i class='fa fa-thumbs-o-down fa-2x'></i></a></td><td><a href='#' class='deleteButton' id='delete_" + idea.id + "'><i class='fa fa-times-circle-o fa-2x deleteButton' id='dele_" + idea.id + "' ></i></a></td></tr>");
+	        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td>" + idea.title + "</td><td>"  + jQuery.trim(idea.body).substring(0, 99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td></tr>");
 	        	});
 	        }
 	        });
 }
 
- // alert("Ready");
- //    $(".fa").attr("disabled", "disabled");
+function deleteIdea(ideaId){
+	$.ajax({
+	        type: 'DELETE',
+	        url: '/api/v1/ideas/' + ideaId,
+	        success: function(idea) {
+	        	$("tr#idea_" + idea.id).remove();
+	        }
+	        });
+}
 
- //    $(".deleteButton").click(function(){
- //        alert("Ok clicked");
- //    });
+function upvoteIdea(ideaId){
+	$.ajax({
+	        type: 'GET',
+	        url: '/api/v1/upvote/' + ideaId,
+	        contentType: 'application/json',
+	        success: function(idea) {
+	        	$("tr#idea_" + idea.id).remove();
+	        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td>" + idea.title + "</td><td>"  + jQuery.trim(idea.body).substring(0, 99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td></tr>");
+	        	}
+	        });
+	        }
 
-// function deleteIdea(){
-// 	debugger;
-		
-// }
-
-
-
-
-  //must change to allow to re render index with updated idea
-
-// $("tr#idea_<%= @idea.id %>").remove();
-// $('.idea-box').prepend('<%= j render partial: 'idea', locals: {idea: @idea} %>');
+function downvoteIdea(ideaId){
+	$.ajax({
+	        type: 'GET',
+	        url: '/api/v1/downvote/' + ideaId,
+	        contentType: 'application/json',
+	        success: function(idea) {
+	        	$("tr#idea_" + idea.id).remove();
+	        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td>" + idea.title + "</td><td>"  + jQuery.trim(idea.body).substring(0, 99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td></tr>");
+	        	}
+	        });
+	        }
