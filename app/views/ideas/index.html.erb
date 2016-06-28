@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="navbar"><div class="navbar-brand">IDEABOX</div></div>
+  <div id="new-idea" class="jumbotron"><%= render 'new' %></div>
+
+	<table class="table table-striped table-hover">
+	
+	<thead>
+	<tr>
+		<th width="15%">Title</th><th width="50%">Body</th><th>Quality</th>
+		<td>&nbsp;</td><td>&nbsp;</td>
+	</tr>
+	</thead>
+	<tbody class="idea-box">
+		<% @ideas.each do |idea| %>
+		<%= render idea %>
+		<% end %>
+	</tbody>
+
+	</table>
+	<!-- <div id="idea-modal" class="modal fade"></div> -->
+</div>

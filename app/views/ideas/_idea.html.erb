@@ -1,0 +1,15 @@
+  <tr id="idea_<%= idea.id %>">
+  <td><%= idea.title %></td>
+  <td><%= truncate(idea.body, length: 100) %></td>
+  <td><button class="btn btn-primary disabled"><%= idea.quality %></button></td>
+  <td><%= link_to edit_idea_path(idea), remote: true, class: "btn btn-info-outline" do %>
+      <i class="fa fa-edit fa-2x"></i><% end %>
+      <%= link_to idea_path(idea, thumbs: "up"), remote: true, method: :put, class: "btn btn-success-outline" do %>
+      <i class="fa fa-thumbs-o-up fa-2x"></i><% end %>
+      <%= link_to idea_path(idea, thumbs: "down"), remote: true, method: :put, class: "btn btn-warning-outline" do %>
+      <i class="fa fa-thumbs-o-down fa-2x"></i><% end %>
+  </td>
+  <td><%= link_to idea_path(idea), remote: true, method: :delete, class: "btn btn-danger-outline" do %>
+      <i class="fa fa-times-circle-o fa-2x"></i><% end %>
+  </td>
+</tr>
