@@ -9,7 +9,7 @@
     	<i class="fa fa-thumbs-o-up fa-2x"></i><% end %>
  	<%= link_to idea_path(idea, thumbs: "down"), remote: true, method: :put, class: "btn btn-warning-outline" do %>
     	<i class="fa fa-thumbs-o-down fa-2x"></i><% end %></td>
-    <td><%= link_to idea_delete_path(idea), remote: true, class: "btn btn-danger-outline" do %>
+    <td><%= link_to idea_path(idea), remote: true, class: "btn btn-danger-outline" do %>
     	<i class="fa fa-times-circle-o fa-2x"></i><% end %></td>
   </tr>
 <% end %>
