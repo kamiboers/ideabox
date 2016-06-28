@@ -12303,3 +12303,2107 @@ Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b098
 
 
 Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-28 05:43:30 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 09:43:35 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.6ms)
+  Rendered ideas/_new.html.erb (3.7ms)
+  [1m[35mIdea Load (1.5ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/_idea.html.erb (26.0ms)
+  Rendered ideas/index.html.erb within layouts/application (43.8ms)
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 1.9ms)
+
+ActionView::Template::Error (undefined method `edit_idea_path' for #<#<Class:0x007fbf7da44040>:0x007fbf7d49dda8>
+Did you mean?  edit_api_v1_idea_path):
+    2:   <td><%= idea.title %></td>
+    3:   <td><%= truncate(idea.body, length: 100) %></td>
+    4:   <td><button class="btn btn-primary disabled"><%= idea.quality %></button></td>
+    5:   <td><%= link_to edit_idea_path(idea), remote: true, class: "btn btn-info-outline" do %>
+    6:       <i class="fa fa-edit fa-2x"></i><% end %>
+    7:       <%= link_to idea_path(idea, thumbs: "up"), remote: true, method: :put, class: "btn btn-success-outline" do %>
+    8:       <i class="fa fa-thumbs-o-up fa-2x"></i><% end %>
+  app/views/ideas/_idea.html.erb:5:in `_app_views_ideas__idea_html_erb___2176287831503186054_70230208881460'
+  app/views/ideas/index.html.erb:15:in `block in _app_views_ideas_index_html_erb__2733432384831331812_70230181905900'
+  app/views/ideas/index.html.erb:14:in `_app_views_ideas_index_html_erb__2733432384831331812_70230181905900'
+  app/controllers/ideas_controller.rb:7:in `index'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (56.8ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (114.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 09:43:36 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.1ms)
+  Rendered ideas/_new.html.erb (1.0ms)
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/_idea.html.erb (33.4ms)
+  Rendered ideas/index.html.erb within layouts/application (36.7ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `edit_idea_path' for #<#<Class:0x007fbf7da44040>:0x007fbf7df99b08>
+Did you mean?  edit_api_v1_idea_path):
+    2:   <td><%= idea.title %></td>
+    3:   <td><%= truncate(idea.body, length: 100) %></td>
+    4:   <td><button class="btn btn-primary disabled"><%= idea.quality %></button></td>
+    5:   <td><%= link_to edit_idea_path(idea), remote: true, class: "btn btn-info-outline" do %>
+    6:       <i class="fa fa-edit fa-2x"></i><% end %>
+    7:       <%= link_to idea_path(idea, thumbs: "up"), remote: true, method: :put, class: "btn btn-success-outline" do %>
+    8:       <i class="fa fa-thumbs-o-up fa-2x"></i><% end %>
+  app/views/ideas/_idea.html.erb:5:in `_app_views_ideas__idea_html_erb___2176287831503186054_70230208881460'
+  app/views/ideas/index.html.erb:15:in `block in _app_views_ideas_index_html_erb__2733432384831331812_70230181905900'
+  app/views/ideas/index.html.erb:14:in `_app_views_ideas_index_html_erb__2733432384831331812_70230181905900'
+  app/controllers/ideas_controller.rb:7:in `index'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (50.4ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (90.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 09:45:08 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.4ms)
+  Rendered ideas/_new.html.erb (1.5ms)
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/_idea.html.erb (2.0ms)
+  Rendered ideas/_idea.html.erb (0.5ms)
+  Rendered ideas/_idea.html.erb (0.5ms)
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/_idea.html.erb (1.1ms)
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/_idea.html.erb (0.5ms)
+  Rendered ideas/_idea.html.erb (0.4ms)
+  Rendered ideas/_idea.html.erb (0.5ms)
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/_idea.html.erb (0.5ms)
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/_idea.html.erb (0.8ms)
+  Rendered ideas/_idea.html.erb (1.0ms)
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/index.html.erb within layouts/application (35.2ms)
+Completed 200 OK in 913ms (Views: 897.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 09:45:10 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 09:45:10 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 09:45:10 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 09:45:10 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 09:45:10 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 09:45:10 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 09:45:10 -0600
+
+
+Started GET "/assets/api/v1/ideas_controller.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-06-28 09:45:10 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-28 09:45:10 -0600
+
+
+Started GET "/?idea_title=Title&idea_body=Body" for 127.0.0.1 at 2016-06-28 09:45:22 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"Title", "idea_body"=>"Body"}
+  Rendered ideas/_form.html.erb (0.3ms)
+  Rendered ideas/_new.html.erb (2.4ms)
+  [1m[36mIdea Load (0.5ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/_idea.html.erb (1.5ms)
+  Rendered ideas/_idea.html.erb (1.2ms)
+  Rendered ideas/_idea.html.erb (2.2ms)
+  Rendered ideas/_idea.html.erb (1.7ms)
+  Rendered ideas/_idea.html.erb (1.0ms)
+  Rendered ideas/_idea.html.erb (0.9ms)
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/_idea.html.erb (1.6ms)
+  Rendered ideas/_idea.html.erb (0.9ms)
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/_idea.html.erb (0.9ms)
+  Rendered ideas/_idea.html.erb (1.0ms)
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/index.html.erb within layouts/application (48.6ms)
+Completed 200 OK in 76ms (Views: 74.9ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/api/v1/ideas/3" for 127.0.0.1 at 2016-06-28 09:45:29 -0600
+
+ActionController::RoutingError (uninitialized constant Api::V1::IdeasController):
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:276:in `const_get'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:276:in `block in constantize'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `constantize'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:70:in `controller_reference'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:60:in `controller'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:39:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/tempfile_reaper.rb:15:in `call'
+  rack (1.6.4) lib/rack/lint.rb:49:in `_call'
+  rack (1.6.4) lib/rack/lint.rb:37:in `call'
+  rack (1.6.4) lib/rack/showexceptions.rb:24:in `call'
+  rack (1.6.4) lib/rack/commonlogger.rb:33:in `call'
+  rack (1.6.4) lib/rack/chunked.rb:54:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:562:in `process_client'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:658:in `worker_loop'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:519:in `maintain_worker_count'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:283:in `join'
+  unicorn (5.1.0) bin/unicorn:126:in `<top (required)>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `load'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `<main>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.4ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (13.3ms)
+
+
+Started GET "/?idea_title=afsdfsdf&idea_body=asdfsdfasd" for 127.0.0.1 at 2016-06-28 09:45:33 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"afsdfsdf", "idea_body"=>"asdfsdfasd"}
+  Rendered ideas/_form.html.erb (0.3ms)
+  Rendered ideas/_new.html.erb (1.1ms)
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/_idea.html.erb (1.1ms)
+  Rendered ideas/_idea.html.erb (1.3ms)
+  Rendered ideas/_idea.html.erb (0.8ms)
+  Rendered ideas/_idea.html.erb (1.1ms)
+  Rendered ideas/_idea.html.erb (0.9ms)
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/_idea.html.erb (0.9ms)
+  Rendered ideas/_idea.html.erb (0.8ms)
+  Rendered ideas/_idea.html.erb (0.5ms)
+  Rendered ideas/_idea.html.erb (1.3ms)
+  Rendered ideas/_idea.html.erb (1.5ms)
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/_idea.html.erb (0.4ms)
+  Rendered ideas/_idea.html.erb (0.9ms)
+  Rendered ideas/index.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 80ms (Views: 78.9ms | ActiveRecord: 0.2ms)
+  [1m[36mSQL (2.7ms)[0m  [1mDELETE FROM "ideas"[0m
+
+
+Started GET "/?idea_title=afsdfsdf&idea_body=asdfsdfasd" for 127.0.0.1 at 2016-06-28 09:46:28 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"afsdfsdf", "idea_body"=>"asdfsdfasd"}
+  Rendered ideas/_form.html.erb (0.4ms)
+  Rendered ideas/_new.html.erb (2.8ms)
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 59ms (Views: 57.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 09:46:29 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 09:46:29 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 09:46:29 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 09:46:29 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 09:46:29 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 09:46:29 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 09:46:29 -0600
+
+
+Started GET "/assets/api/v1/ideas_controller.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-06-28 09:46:29 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-28 09:46:29 -0600
+
+
+Started GET "/?idea_title=&idea_body=" for 127.0.0.1 at 2016-06-28 09:46:30 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"", "idea_body"=>""}
+  Rendered ideas/_form.html.erb (0.2ms)
+  Rendered ideas/_new.html.erb (1.6ms)
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/?idea_title=a&idea_body=" for 127.0.0.1 at 2016-06-28 09:46:33 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"a", "idea_body"=>""}
+  Rendered ideas/_form.html.erb (0.1ms)
+  Rendered ideas/_new.html.erb (0.9ms)
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 27ms (Views: 24.4ms | ActiveRecord: 0.1ms)
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"
+
+
+Started GET "/?idea_title=a&idea_body=" for 127.0.0.1 at 2016-06-28 09:56:08 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"a", "idea_body"=>""}
+  Rendered ideas/_form.html.erb (1.0ms)
+  Rendered ideas/_new.html.erb (3.5ms)
+  [1m[35mIdea Load (1.0ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 177ms (Views: 164.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 09:56:08 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 09:56:08 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 09:56:08 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:08 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:08 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:08 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:08 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:08 -0600
+
+
+Started GET "/assets/ideas.self-2726033b53d6b7d92b8900f3fd424a176bde6c54fdb5128345d2f6c75decfb8e.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:08 -0600
+
+
+Started GET "/?idea_title=a&idea_body=" for 127.0.0.1 at 2016-06-28 09:56:13 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"a", "idea_body"=>""}
+  Rendered ideas/_form.html.erb (0.1ms)
+  Rendered ideas/_new.html.erb (1.0ms)
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 09:56:14 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 09:56:14 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 09:56:14 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:14 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:14 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:14 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:14 -0600
+
+
+Started GET "/assets/ideas.self-2726033b53d6b7d92b8900f3fd424a176bde6c54fdb5128345d2f6c75decfb8e.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:14 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-28 09:56:14 -0600
+
+
+Started GET "/?idea_title=ddfadfas&idea_body=fdafsdf" for 127.0.0.1 at 2016-06-28 09:56:17 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"ddfadfas", "idea_body"=>"fdafsdf"}
+  Rendered ideas/_form.html.erb (0.2ms)
+  Rendered ideas/_new.html.erb (2.2ms)
+  [1m[35mIdea Load (0.1ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/?idea_title=fadsfasdf&idea_body=afsdfdsaf" for 127.0.0.1 at 2016-06-28 09:56:41 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"fadsfasdf", "idea_body"=>"afsdfdsaf"}
+  Rendered ideas/_form.html.erb (0.3ms)
+  Rendered ideas/_new.html.erb (3.4ms)
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 63ms (Views: 61.7ms | ActiveRecord: 0.2ms)
+  [1m[36mIdea Load (0.9ms)[0m  [1mSELECT "ideas".* FROM "ideas"[0m
+
+
+Started GET "/?idea_title=fadsfasdf&idea_body=afsdfdsaf" for 127.0.0.1 at 2016-06-28 09:59:13 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"fadsfasdf", "idea_body"=>"afsdfdsaf"}
+  Rendered ideas/_form.html.erb (0.4ms)
+  Rendered ideas/_new.html.erb (3.0ms)
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 146ms (Views: 145.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 09:59:14 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 09:59:14 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 09:59:14 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 09:59:14 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 09:59:14 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 09:59:14 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 09:59:14 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-28 09:59:14 -0600
+
+
+Started GET "/assets/ideas.self-fa3e78e381e1631ef34c60b93378223a70ac4e6091c0f471ff7ea4333c2eb827.js?body=1" for 127.0.0.1 at 2016-06-28 09:59:14 -0600
+
+
+Started GET "/?idea_title=fdadsf&idea_body=fasdfsd" for 127.0.0.1 at 2016-06-28 09:59:22 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"fdadsf", "idea_body"=>"fasdfsd"}
+  Rendered ideas/_form.html.erb (0.1ms)
+  Rendered ideas/_new.html.erb (1.2ms)
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 40ms (Views: 39.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/?idea_title=fdadsf&idea_body=fasdfsd" for 127.0.0.1 at 2016-06-28 10:01:09 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"fdadsf", "idea_body"=>"fasdfsd"}
+  Rendered ideas/_form.html.erb (0.5ms)
+  Rendered ideas/_new.html.erb (3.1ms)
+  [1m[35mIdea Load (0.1ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 479ms (Views: 460.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:01:10 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:01:10 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:01:10 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:01:10 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:01:10 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:01:10 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:01:10 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-28 10:01:10 -0600
+
+
+Started GET "/assets/ideas.self-d97ae8de3e54b534c0e663d86a62808fe418c6cae7bacb01b884cdd9abf22ee4.js?body=1" for 127.0.0.1 at 2016-06-28 10:01:10 -0600
+
+
+Started GET "/?idea_title=fsdafd&idea_body=asdfsd" for 127.0.0.1 at 2016-06-28 10:01:46 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"fsdafd", "idea_body"=>"asdfsd"}
+  Rendered ideas/_form.html.erb (0.1ms)
+  Rendered ideas/_new.html.erb (1.1ms)
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 60ms (Views: 51.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/?idea_title=fsdafd&idea_body=asdfsd" for 127.0.0.1 at 2016-06-28 10:03:09 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"fsdafd", "idea_body"=>"asdfsd"}
+  Rendered ideas/_form.html.erb (0.7ms)
+  Rendered ideas/_new.html.erb (2.0ms)
+  [1m[35mIdea Load (0.1ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:03:09 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:03:09 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:03:09 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:09 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:09 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:09 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:09 -0600
+
+
+Started GET "/assets/ideas.self-d97ae8de3e54b534c0e663d86a62808fe418c6cae7bacb01b884cdd9abf22ee4.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:09 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:09 -0600
+
+
+Started GET "/?idea_title=fsdafd&idea_body=asdfsd" for 127.0.0.1 at 2016-06-28 10:03:32 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"fsdafd", "idea_body"=>"asdfsd"}
+  Rendered ideas/_form.html.erb (0.2ms)
+  Rendered ideas/_new.html.erb (3.3ms)
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 56ms (Views: 54.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:03:32 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:03:32 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:03:32 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:32 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:32 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:32 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:32 -0600
+
+
+Started GET "/assets/ideas.self-d97ae8de3e54b534c0e663d86a62808fe418c6cae7bacb01b884cdd9abf22ee4.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:32 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-28 10:03:32 -0600
+
+
+Started GET "/?idea_title=fsdafd&idea_body=asdfsd" for 127.0.0.1 at 2016-06-28 10:04:03 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"fsdafd", "idea_body"=>"asdfsd"}
+  Rendered ideas/_form.html.erb (0.8ms)
+  Rendered ideas/_new.html.erb (1.9ms)
+  [1m[35mIdea Load (0.7ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 57ms (Views: 53.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:04:03 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:04:03 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:04:03 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:04:03 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:04:03 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:04:03 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:04:03 -0600
+
+
+Started GET "/assets/ideas.self-d97ae8de3e54b534c0e663d86a62808fe418c6cae7bacb01b884cdd9abf22ee4.js?body=1" for 127.0.0.1 at 2016-06-28 10:04:03 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-28 10:04:03 -0600
+
+
+Started GET "/?idea_title=fsdafd&idea_body=asdfsd" for 127.0.0.1 at 2016-06-28 10:06:16 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"fsdafd", "idea_body"=>"asdfsd"}
+  Rendered ideas/_form.html.erb (0.2ms)
+  Rendered ideas/_new.html.erb (3.0ms)
+  [1m[36mIdea Load (0.4ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 113ms (Views: 111.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:06:17 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:06:17 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:06:17 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:06:17 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:06:17 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:06:17 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:06:17 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-28 10:06:17 -0600
+
+
+Started GET "/assets/ideas.self-32c957a38a6ed1b2147f1eac16d566b7dafa7ced50eab79ca15214ffc6b7f816.js?body=1" for 127.0.0.1 at 2016-06-28 10:06:17 -0600
+
+
+Started GET "/?idea_title=fsdafd&idea_body=asdfsd" for 127.0.0.1 at 2016-06-28 10:08:08 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"fsdafd", "idea_body"=>"asdfsd"}
+  Rendered ideas/_form.html.erb (0.2ms)
+  Rendered ideas/_new.html.erb (2.8ms)
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 100ms (Views: 99.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:08:08 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:08:08 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:08:08 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:08:08 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:08:08 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:08:08 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:08:08 -0600
+
+
+Started GET "/assets/ideas.self-692847cde0cb1345b303b6927424a117a3ac0ad2ee154a6967b89ed8f9fa16b8.js?body=1" for 127.0.0.1 at 2016-06-28 10:08:08 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:08:08 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:08:12 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.1ms)
+  Rendered ideas/_new.html.erb (1.3ms)
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:08:12 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.2ms)
+  Rendered ideas/_new.html.erb (1.9ms)
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 35ms (Views: 34.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:09:00 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.1ms)
+  Rendered ideas/_new.html.erb (2.8ms)
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 115ms (Views: 114.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/ideas.self-16706e37b0d7d8bf8eecd501eaeeacefc5e4565bdbb4da2b530129f53fcc1f04.js?body=1" for 127.0.0.1 at 2016-06-28 10:09:00 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:09:36 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.1ms)
+  Rendered ideas/_new.html.erb (1.0ms)
+  [1m[35mIdea Load (0.1ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 94ms (Views: 93.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:09:37 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:09:37 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:09:37 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:09:37 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:09:37 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:09:37 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:09:37 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:09:37 -0600
+
+
+Started GET "/assets/ideas.self-9acb5f883b0dee8c4ca78363575494493656146558ec925eae644f497c8e9208.js?body=1" for 127.0.0.1 at 2016-06-28 10:09:37 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:09:40 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.1ms)
+  Rendered ideas/_new.html.erb (1.1ms)
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 28ms (Views: 27.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:10:49 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.3ms)
+  Rendered ideas/_new.html.erb (1.5ms)
+  [1m[35mIdea Load (0.1ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 483ms (Views: 464.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:10:51 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:10:51 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:10:51 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:10:51 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:10:51 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:10:51 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:10:51 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:10:51 -0600
+
+
+Started GET "/assets/ideas.self-f949a39e9b0b0f6bf8f98b4f0d76437bc2f057c811786ca9692693c38b86866f.js?body=1" for 127.0.0.1 at 2016-06-28 10:10:51 -0600
+
+
+Started POST "/api/v1/items" for 127.0.0.1 at 2016-06-28 10:10:56 -0600
+
+ActionController::RoutingError (No route matches [POST] "/api/v1/items"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/tempfile_reaper.rb:15:in `call'
+  rack (1.6.4) lib/rack/lint.rb:49:in `_call'
+  rack (1.6.4) lib/rack/lint.rb:37:in `call'
+  rack (1.6.4) lib/rack/showexceptions.rb:24:in `call'
+  rack (1.6.4) lib/rack/commonlogger.rb:33:in `call'
+  rack (1.6.4) lib/rack/chunked.rb:54:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:562:in `process_client'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:658:in `worker_loop'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:519:in `maintain_worker_count'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:283:in `join'
+  unicorn (5.1.0) bin/unicorn:126:in `<top (required)>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `load'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `<main>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (18.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:11:51 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.1ms)
+  Rendered ideas/_new.html.erb (1.2ms)
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 39ms (Views: 32.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:11:52 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:11:52 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:11:52 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:11:52 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:11:52 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:11:52 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:11:52 -0600
+
+
+Started GET "/assets/ideas.self-f949a39e9b0b0f6bf8f98b4f0d76437bc2f057c811786ca9692693c38b86866f.js?body=1" for 127.0.0.1 at 2016-06-28 10:11:52 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:11:52 -0600
+
+
+Started POST "/api/v1/items" for 127.0.0.1 at 2016-06-28 10:11:55 -0600
+
+ActionController::RoutingError (No route matches [POST] "/api/v1/items"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/tempfile_reaper.rb:15:in `call'
+  rack (1.6.4) lib/rack/lint.rb:49:in `_call'
+  rack (1.6.4) lib/rack/lint.rb:37:in `call'
+  rack (1.6.4) lib/rack/showexceptions.rb:24:in `call'
+  rack (1.6.4) lib/rack/commonlogger.rb:33:in `call'
+  rack (1.6.4) lib/rack/chunked.rb:54:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:562:in `process_client'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:658:in `worker_loop'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:519:in `maintain_worker_count'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:283:in `join'
+  unicorn (5.1.0) bin/unicorn:126:in `<top (required)>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `load'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `<main>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.4ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (22.6ms)
+
+
+Started POST "/api/v1/items" for 127.0.0.1 at 2016-06-28 10:11:59 -0600
+
+ActionController::RoutingError (No route matches [POST] "/api/v1/items"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/tempfile_reaper.rb:15:in `call'
+  rack (1.6.4) lib/rack/lint.rb:49:in `_call'
+  rack (1.6.4) lib/rack/lint.rb:37:in `call'
+  rack (1.6.4) lib/rack/showexceptions.rb:24:in `call'
+  rack (1.6.4) lib/rack/commonlogger.rb:33:in `call'
+  rack (1.6.4) lib/rack/chunked.rb:54:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:562:in `process_client'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:658:in `worker_loop'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:519:in `maintain_worker_count'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:283:in `join'
+  unicorn (5.1.0) bin/unicorn:126:in `<top (required)>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `load'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `<main>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (14.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:12:58 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.2ms)
+  Rendered ideas/_new.html.erb (1.3ms)
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 59ms (Views: 47.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:12:58 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:12:58 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:12:58 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:12:58 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:12:58 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:12:58 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:12:58 -0600
+
+
+Started GET "/assets/ideas.self-f949a39e9b0b0f6bf8f98b4f0d76437bc2f057c811786ca9692693c38b86866f.js?body=1" for 127.0.0.1 at 2016-06-28 10:12:58 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:12:58 -0600
+
+
+Started POST "/api/v1/items" for 127.0.0.1 at 2016-06-28 10:13:06 -0600
+
+ActionController::RoutingError (No route matches [POST] "/api/v1/items"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/tempfile_reaper.rb:15:in `call'
+  rack (1.6.4) lib/rack/lint.rb:49:in `_call'
+  rack (1.6.4) lib/rack/lint.rb:37:in `call'
+  rack (1.6.4) lib/rack/showexceptions.rb:24:in `call'
+  rack (1.6.4) lib/rack/commonlogger.rb:33:in `call'
+  rack (1.6.4) lib/rack/chunked.rb:54:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:562:in `process_client'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:658:in `worker_loop'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:519:in `maintain_worker_count'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:283:in `join'
+  unicorn (5.1.0) bin/unicorn:126:in `<top (required)>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `load'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `<main>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (17.3ms)
+
+
+Started POST "/api/v1/items" for 127.0.0.1 at 2016-06-28 10:14:10 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [POST] "/api/v1/items"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/tempfile_reaper.rb:15:in `call'
+  rack (1.6.4) lib/rack/lint.rb:49:in `_call'
+  rack (1.6.4) lib/rack/lint.rb:37:in `call'
+  rack (1.6.4) lib/rack/showexceptions.rb:24:in `call'
+  rack (1.6.4) lib/rack/commonlogger.rb:33:in `call'
+  rack (1.6.4) lib/rack/chunked.rb:54:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:562:in `process_client'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:658:in `worker_loop'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:132:in `start'
+  unicorn (5.1.0) bin/unicorn:126:in `<top (required)>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `load'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `<main>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (16.3ms)
+
+
+Started POST "/api/v1/items" for 127.0.0.1 at 2016-06-28 10:14:35 -0600
+
+ActionController::RoutingError (No route matches [POST] "/api/v1/items"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/tempfile_reaper.rb:15:in `call'
+  rack (1.6.4) lib/rack/lint.rb:49:in `_call'
+  rack (1.6.4) lib/rack/lint.rb:37:in `call'
+  rack (1.6.4) lib/rack/showexceptions.rb:24:in `call'
+  rack (1.6.4) lib/rack/commonlogger.rb:33:in `call'
+  rack (1.6.4) lib/rack/chunked.rb:54:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:562:in `process_client'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:658:in `worker_loop'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:132:in `start'
+  unicorn (5.1.0) bin/unicorn:126:in `<top (required)>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `load'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `<main>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (18.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:14:39 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.9ms)
+  Rendered ideas/_new.html.erb (4.0ms)
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 520ms (Views: 497.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:14:40 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:14:40 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:14:40 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:14:40 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:14:40 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:14:40 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:14:40 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:14:40 -0600
+
+
+Started GET "/assets/ideas.self-028e685da79ad6afa12e4eaa509a534a76807dfd7130207a6f66ba28d1ada35f.js?body=1" for 127.0.0.1 at 2016-06-28 10:14:40 -0600
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:14:44 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"fadsfsda", "body"=>"dfasdf"}}
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:15:48 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.5ms)
+  Rendered ideas/_new.html.erb (1.8ms)
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 262ms (Views: 245.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:15:49 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"fadsfsda", "body"=>"dfasdf"}}
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT "ideas".* FROM "ideas"[0m
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:16:52 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:16:52 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:16:52 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:16:52 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:16:52 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:16:52 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:17:29 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.5ms)
+  Rendered ideas/_new.html.erb (3.2ms)
+  [1m[35mIdea Load (0.1ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 150ms (Views: 132.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:17:29 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:17:29 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:17:29 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:17:29 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:17:29 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:17:29 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:17:29 -0600
+
+
+Started GET "/assets/ideas.self-028e685da79ad6afa12e4eaa509a534a76807dfd7130207a6f66ba28d1ada35f.js?body=1" for 127.0.0.1 at 2016-06-28 10:17:29 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:17:29 -0600
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:17:33 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"fdasdfs", "body"=>"fdassd"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'fdasdfs' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "fdasdfs"], ["body", "fdassd"], ["created_at", "2016-06-28 16:17:33.146337"], ["updated_at", "2016-06-28 16:17:33.146337"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Completed 200 OK in 37ms (Views: 0.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:19:27 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (1.3ms)
+  Rendered ideas/_new.html.erb (4.3ms)
+  [1m[36mIdea Load (0.3ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/_idea.html.erb (3.4ms)
+  Rendered ideas/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 124ms (Views: 123.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:19:28 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:19:28 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:19:28 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:28 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:28 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:28 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:28 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:28 -0600
+
+
+Started GET "/assets/ideas.self-53149411a200e873aa5f50409d4bf72010e77ec893b93ced310697c2044e7966.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:28 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:19:28 -0600
+
+AbstractController::ActionNotFound (The action 'index' could not be found for Api::V1::IdeasController):
+  actionpack (4.2.6) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/tempfile_reaper.rb:15:in `call'
+  rack (1.6.4) lib/rack/lint.rb:49:in `_call'
+  rack (1.6.4) lib/rack/lint.rb:37:in `call'
+  rack (1.6.4) lib/rack/showexceptions.rb:24:in `call'
+  rack (1.6.4) lib/rack/commonlogger.rb:33:in `call'
+  rack (1.6.4) lib/rack/chunked.rb:54:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:562:in `process_client'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:658:in `worker_loop'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:519:in `maintain_worker_count'
+  unicorn (5.1.0) lib/unicorn/http_server.rb:283:in `join'
+  unicorn (5.1.0) bin/unicorn:126:in `<top (required)>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `load'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/unicorn:23:in `<main>'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+  /Users/Kami/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/unknown_action.text.erb (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:19:55 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.2ms)
+  Rendered ideas/_new.html.erb (1.1ms)
+  [1m[35mIdea Load (0.1ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 33ms (Views: 26.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:19:55 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:19:55 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:19:55 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:55 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:55 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:55 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:55 -0600
+
+
+Started GET "/assets/ideas.self-53149411a200e873aa5f50409d4bf72010e77ec893b93ced310697c2044e7966.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:55 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:19:55 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:19:56 -0600
+Processing by Api::V1::IdeasController#index as JSON
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant Api::V1::IdeasController::Ideas):
+  app/controllers/api/v1/ideas_controller.rb:4:in `index'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (2.4ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (101.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:20:38 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/_form.html.erb (0.1ms)
+  Rendered ideas/_new.html.erb (1.0ms)
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 44ms (Views: 36.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:20:39 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:20:39 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:20:39 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:20:39 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:20:39 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:20:39 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:20:39 -0600
+
+
+Started GET "/assets/ideas.self-53149411a200e873aa5f50409d4bf72010e77ec893b93ced310697c2044e7966.js?body=1" for 127.0.0.1 at 2016-06-28 10:20:39 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:20:39 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:20:39 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.3ms)[0m  SELECT "ideas".* FROM "ideas"
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:21:57 -0600
+Processing by IdeasController#index as HTML
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 27ms (Views: 26.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:21:57 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:21:57 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:21:57 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:21:57 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:21:57 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:21:57 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:21:57 -0600
+
+
+Started GET "/assets/ideas.self-53149411a200e873aa5f50409d4bf72010e77ec893b93ced310697c2044e7966.js?body=1" for 127.0.0.1 at 2016-06-28 10:21:57 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:21:57 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:21:58 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.1ms)[0m  SELECT "ideas".* FROM "ideas"
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:22:02 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"fdsafda", "body"=>"fadsfs"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'fdsafda' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "fdsafda"], ["body", "fadsfs"], ["created_at", "2016-06-28 16:22:02.019572"], ["updated_at", "2016-06-28 16:22:02.019572"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:22:05 -0600
+Processing by IdeasController#index as HTML
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/_idea.html.erb (0.4ms)
+  Rendered ideas/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:22:06 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:22:06 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:22:06 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:06 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:06 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:06 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:06 -0600
+
+
+Started GET "/assets/ideas.self-53149411a200e873aa5f50409d4bf72010e77ec893b93ced310697c2044e7966.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:06 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:06 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:22:06 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.9ms)[0m  SELECT "ideas".* FROM "ideas"
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:22:53 -0600
+Processing by IdeasController#index as HTML
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/_idea.html.erb (0.5ms)
+  Rendered ideas/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 27ms (Views: 26.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:22:53 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:22:53 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:22:53 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:53 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:53 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:53 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:53 -0600
+
+
+Started GET "/assets/ideas.self-53149411a200e873aa5f50409d4bf72010e77ec893b93ced310697c2044e7966.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:53 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:22:53 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:22:53 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:23:12 -0600
+Processing by IdeasController#index as HTML
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/_idea.html.erb (0.8ms)
+  Rendered ideas/_idea.html.erb (0.5ms)
+  Rendered ideas/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:23:12 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:23:12 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:23:12 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:12 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:12 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:12 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:12 -0600
+
+
+Started GET "/assets/ideas.self-53149411a200e873aa5f50409d4bf72010e77ec893b93ced310697c2044e7966.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:12 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:12 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:23:12 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.1ms)[0m  SELECT "ideas".* FROM "ideas"
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:23:22 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"fdafsd", "body"=>"dsafsdf"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.3ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'fdafsd' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "fdafsd"], ["body", "dsafsdf"], ["created_at", "2016-06-28 16:23:22.515381"], ["updated_at", "2016-06-28 16:23:22.515381"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:23:26 -0600
+Processing by IdeasController#index as HTML
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/_idea.html.erb (0.9ms)
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:23:26 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:23:26 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:23:26 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:26 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:26 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:26 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:26 -0600
+
+
+Started GET "/assets/ideas.self-53149411a200e873aa5f50409d4bf72010e77ec893b93ced310697c2044e7966.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:26 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:23:26 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:23:26 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.3ms)[0m  SELECT "ideas".* FROM "ideas"
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:24:48 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"adfsdfdsa", "body"=>"afsdfsdafsd"}}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.3ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'adfsdfdsa' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "adfsdfdsa"], ["body", "afsdfsdafsd"], ["created_at", "2016-06-28 16:24:48.526958"], ["updated_at", "2016-06-28 16:24:48.526958"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+Completed 200 OK in 10ms (Views: 1.0ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:25:20 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"adfsdfdsfsadfsadfsdfaa", "body"=>"afsdfsdafsd"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'adfsdfdsfsadfsadfsdfaa' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "adfsdfdsfsadfsadfsdfaa"], ["body", "afsdfsdafsd"], ["created_at", "2016-06-28 16:25:20.420532"], ["updated_at", "2016-06-28 16:25:20.420532"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:25:23 -0600
+Processing by IdeasController#index as HTML
+  [1m[36mIdea Load (0.3ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."updated_at" DESC[0m
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/_idea.html.erb (0.8ms)
+  Rendered ideas/_idea.html.erb (0.7ms)
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/_idea.html.erb (0.6ms)
+  Rendered ideas/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 119ms (Views: 117.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:25:23 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:25:23 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:25:23 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:25:23 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:25:23 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:25:23 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:25:23 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:25:23 -0600
+
+
+Started GET "/assets/ideas.self-2fb658e8908a681222150a9fd5b705ae834ccbf90f3cac8c64b9a47d25afdea0.js?body=1" for 127.0.0.1 at 2016-06-28 10:25:23 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:27:06 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 116ms (Views: 115.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:27:06 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:27:06 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:27:06 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:27:06 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:27:06 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:27:06 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:27:06 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:27:06 -0600
+
+
+Started GET "/assets/ideas.self-c9e9e8b2075391a4ec63daf094a6a223e5e49dce94f9944ac4c50487c16fd6a7.js?body=1" for 127.0.0.1 at 2016-06-28 10:27:06 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:28:09 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 114ms (Views: 105.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/ideas.self-1130749e6364777ee8acd126763d49274e18d2a4c330e928dbc543b63196e9ff.js?body=1" for 127.0.0.1 at 2016-06-28 10:28:09 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:28:09 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.3ms)[0m  SELECT "ideas".* FROM "ideas"
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:28:12 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"fsafsd", "body"=>"adsfsda"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.2ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'fsafsd' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "fsafsd"], ["body", "adsfsda"], ["created_at", "2016-06-28 16:28:12.281315"], ["updated_at", "2016-06-28 16:28:12.281315"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:30:51 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 488ms (Views: 474.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:30:52 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:30:52 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:30:52 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:30:52 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:30:52 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:30:52 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:30:52 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:30:52 -0600
+
+
+Started GET "/assets/ideas.self-71f8f21edefd5f2ef433a26630ab1e0891133c8821fa8fcdc4541854462a3e1a.js?body=1" for 127.0.0.1 at 2016-06-28 10:30:52 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:30:52 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.5ms)[0m  SELECT "ideas".* FROM "ideas"
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:30:57 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"reafsdfas", "body"=>"fasdfsdf"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.2ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'reafsdfas' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "reafsdfas"], ["body", "fasdfsdf"], ["created_at", "2016-06-28 16:30:57.718539"], ["updated_at", "2016-06-28 16:30:57.718539"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Completed 200 OK in 53ms (Views: 0.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:35:27 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 106ms (Views: 105.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ideas.self-240142f4b4a7d32be3c52e48f1584d1c8c833abcb01f2bdfe04dce15dee15805.js?body=1" for 127.0.0.1 at 2016-06-28 10:35:28 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-28 10:37:20 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 407ms (Views: 391.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:37:21 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:37:21 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:37:21 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:37:21 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:37:21 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:37:21 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:37:21 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:37:21 -0600
+
+
+Started GET "/assets/ideas.self-4136057fd4b8484987d26060d92fb0c21a3d107567e4cee58efb11b893213ed3.js?body=1" for 127.0.0.1 at 2016-06-28 10:37:21 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:37:21 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:37:25 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"asfsdfd", "body"=>"adsfsd"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'asfsdfd' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "asfsdfd"], ["body", "adsfsd"], ["created_at", "2016-06-28 16:37:25.437166"], ["updated_at", "2016-06-28 16:37:25.437166"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 51ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:37:29 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"asfsdfdadfasfas", "body"=>"adsfsd"}}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'asfsdfdadfasfas' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "asfsdfdadfasfas"], ["body", "adsfsd"], ["created_at", "2016-06-28 16:37:29.855784"], ["updated_at", "2016-06-28 16:37:29.855784"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:37:33 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"asfsdfdadfasfasasdfsad", "body"=>"adsfsdfsdasfasf"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.2ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'asfsdfdadfasfasasdfsad' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "asfsdfdadfasfasasdfsad"], ["body", "adsfsdfsdasfasf"], ["created_at", "2016-06-28 16:37:33.185413"], ["updated_at", "2016-06-28 16:37:33.185413"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:38:21 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"idea", "body"=>"body"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'idea' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "idea"], ["body", "body"], ["created_at", "2016-06-28 16:38:21.729350"], ["updated_at", "2016-06-28 16:38:21.729350"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:38:27 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"ideaasfsafd", "body"=>"body"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.2ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'ideaasfsafd' LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "ideaasfsafd"], ["body", "body"], ["created_at", "2016-06-28 16:38:27.833726"], ["updated_at", "2016-06-28 16:38:27.833726"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:39:17 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"what", "body"=>"extremely long body to be truncated in the future and i don't know how to do that yet so i'm just oging to keep typing so that i remember to do this later and this is probably a hundred characters"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.2ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'what' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "what"], ["body", "extremely long body to be truncated in the future and i don't know how to do that yet so i'm just oging to keep typing so that i remember to do this later and this is probably a hundred characters"], ["created_at", "2016-06-28 16:39:17.141898"], ["updated_at", "2016-06-28 16:39:17.141898"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/?idea_title=fsdafd&idea_body=asdfsd" for 127.0.0.1 at 2016-06-28 10:39:57 -0600
+Processing by IdeasController#index as HTML
+  Parameters: {"idea_title"=>"fsdafd", "idea_body"=>"asdfsd"}
+  Rendered ideas/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 26ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-28 10:39:57 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-28 10:39:57 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-28 10:39:57 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-28 10:39:57 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-28 10:39:57 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-28 10:39:57 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-28 10:39:57 -0600
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2016-06-28 10:39:57 -0600
+
+
+Started GET "/assets/ideas.self-4136057fd4b8484987d26060d92fb0c21a3d107567e4cee58efb11b893213ed3.js?body=1" for 127.0.0.1 at 2016-06-28 10:39:57 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:39:57 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (0.5ms)[0m  [1mSELECT "ideas".* FROM "ideas"[0m
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:40:00 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"adfsd", "body"=>"adfsadfa"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'adfsd' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "adfsd"], ["body", "adfsadfa"], ["created_at", "2016-06-28 16:40:00.058174"], ["updated_at", "2016-06-28 16:40:00.058174"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:40:02 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"adfsdadfsad", "body"=>"adfsadfa"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'adfsdadfsad' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "adfsdadfsad"], ["body", "adfsadfa"], ["created_at", "2016-06-28 16:40:02.379658"], ["updated_at", "2016-06-28 16:40:02.379658"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:40:04 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"adfsdadfsadfdfsda", "body"=>"adfsadfa"}}
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'adfsdadfsadfdfsda' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "adfsdadfsadfdfsda"], ["body", "adfsadfa"], ["created_at", "2016-06-28 16:40:04.025803"], ["updated_at", "2016-06-28 16:40:04.025803"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:40:06 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"asdfasdfs", "body"=>"adfsadfa"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'asdfasdfs' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "asdfasdfs"], ["body", "adfsadfa"], ["created_at", "2016-06-28 16:40:06.398425"], ["updated_at", "2016-06-28 16:40:06.398425"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:40:10 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"eeeeeee", "body"=>"adfsadfa"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'eeeeeee' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "eeeeeee"], ["body", "adfsadfa"], ["created_at", "2016-06-28 16:40:10.363858"], ["updated_at", "2016-06-28 16:40:10.363858"]]
+  [1m[36m (4.9ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:40:12 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"a", "body"=>"adfsadfa"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'a' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "a"], ["body", "adfsadfa"], ["created_at", "2016-06-28 16:40:12.233331"], ["updated_at", "2016-06-28 16:40:12.233331"]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:40:14 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"b", "body"=>"adfsadfa"}}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'b' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "b"], ["body", "adfsadfa"], ["created_at", "2016-06-28 16:40:14.180022"], ["updated_at", "2016-06-28 16:40:14.180022"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-28 10:40:15 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"c", "body"=>"adfsadfa"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'c' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "c"], ["body", "adfsadfa"], ["created_at", "2016-06-28 16:40:15.972262"], ["updated_at", "2016-06-28 16:40:15.972262"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 2.2ms)

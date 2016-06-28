@@ -1,13 +1,8 @@
 class IdeasController < ApplicationController
-  respond_to :html, :json
+  respond_to :html
 
 def index
   @ideas = Idea.order(updated_at: :desc)
-  @idea = Idea.new
-  respond_with(@ideas)
-end
-
-def new
   @idea = Idea.new
 end
 
@@ -41,11 +36,5 @@ def destroy
   @idea.destroy
 end
 
-
-  private
-  
-  def idea_params
-    params.require(:idea).permit(:title, :body)
-  end
 
 end

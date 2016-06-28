@@ -1,6 +1,0 @@
-
-
-  //must change to allow to re render index with updated idea
-
-$("tr#idea_<%= @idea.id %>").remove();
-$('.idea-box').prepend('<%= j render partial: 'idea', locals: {idea: @idea} %>');
