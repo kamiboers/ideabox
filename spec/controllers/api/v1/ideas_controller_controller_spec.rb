@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::IdeasControllerController, type: :controller do
+RSpec.describe Api::V1::IdeasController, type: :controller do
 
 end
