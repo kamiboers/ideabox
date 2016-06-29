@@ -46669,3 +46669,88 @@ Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 12:15:51 -0600
 Processing by Api::V1::IdeasController#index as JSON
   [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
 Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:26:10 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 437ms (Views: 422.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-29 12:26:11 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-29 12:26:11 -0600
+
+
+Started GET "/assets/custom.self-e82526900dcfaa8c5d77c15ac79791518eed00506fad659e7768f1ae4b2480ef.css?body=1" for 127.0.0.1 at 2016-06-29 12:26:11 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-29 12:26:11 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-29 12:26:11 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-29 12:26:11 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-29 12:26:11 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-29 12:26:11 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-29 12:26:11 -0600
+
+
+Started GET "/assets/ideas.self-e0d8a3c9cc2612e485df771a1155e5d770d0d7ab94d6dbca6bae8fec999c3c2c.js?body=1" for 127.0.0.1 at 2016-06-29 12:26:11 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 12:26:11 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.3ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:35:13 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 247ms (Views: 238.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-29 12:35:13 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-29 12:35:13 -0600
+
+
+Started GET "/assets/custom.self-e82526900dcfaa8c5d77c15ac79791518eed00506fad659e7768f1ae4b2480ef.css?body=1" for 127.0.0.1 at 2016-06-29 12:35:13 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-29 12:35:13 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-29 12:35:13 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-29 12:35:14 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-29 12:35:14 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-29 12:35:14 -0600
+
+
+Started GET "/assets/ideas.self-b3d4709c208af7e969c9f8a7fbd3b89e321474cca3963fe16056c44931197ff7.js?body=1" for 127.0.0.1 at 2016-06-29 12:35:14 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-29 12:35:14 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 12:35:14 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (0.7ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC[0m
+Completed 200 OK in 17ms (Views: 13.4ms | ActiveRecord: 0.7ms)

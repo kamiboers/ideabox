@@ -140,3 +140,10 @@ function filter(element) {
 String.prototype.trimToLength = function(limit) {
 	return (this.length > limit) ? jQuery.trim(this).substring(0, limit).split(" ").slice(0, -1).join(" ") + "..." : this;
 };
+
+jQuery.expr[':'].Contains = function(a, i, m) { 
+  return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0; 
+};
+jQuery.expr[':'].contains = function(a, i, m) { 
+  return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0; 
+};
