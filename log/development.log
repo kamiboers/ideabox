@@ -45500,3 +45500,1172 @@ Processing by Api::V1::IdeasController#upvote as */*
   [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 2], ["updated_at", "2016-06-29 17:52:41.481094"], ["id", 110]]
   [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
 Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 11:56:14 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 1], ["updated_at", "2016-06-29 17:56:14.850200"], ["id", 110]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 11:56:15 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 0], ["updated_at", "2016-06-29 17:56:15.124428"], ["id", 110]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/downvote/108" for 127.0.0.1 at 2016-06-29 11:56:15 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"108", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 108]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('-1' is not a valid quality):
+  app/models/idea.rb:12:in `thumbs_down'
+  app/controllers/api/v1/ideas_controller.rb:24:in `downvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (45.7ms)
+
+
+Started GET "/api/v1/upvote/108" for 127.0.0.1 at 2016-06-29 11:56:16 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"108", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 108]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 1], ["updated_at", "2016-06-29 17:56:16.307353"], ["id", 108]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/upvote/108" for 127.0.0.1 at 2016-06-29 11:56:16 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"108", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 108]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 2], ["updated_at", "2016-06-29 17:56:16.509692"], ["id", 108]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/v1/upvote/106" for 127.0.0.1 at 2016-06-29 11:56:17 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"106", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 106]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('3' is not a valid quality):
+  app/models/idea.rb:7:in `thumbs_up'
+  app/controllers/api/v1/ideas_controller.rb:19:in `upvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.2ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (43.1ms)
+
+
+Started GET "/api/v1/downvote/106" for 127.0.0.1 at 2016-06-29 11:56:18 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"106", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 106]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 1], ["updated_at", "2016-06-29 17:56:18.289169"], ["id", 106]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/downvote/106" for 127.0.0.1 at 2016-06-29 11:56:18 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"106", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 106]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 0], ["updated_at", "2016-06-29 17:56:18.488945"], ["id", 106]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/v1/upvote/105" for 127.0.0.1 at 2016-06-29 11:56:19 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"105", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 105]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 2], ["updated_at", "2016-06-29 17:56:19.267149"], ["id", 105]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/v1/upvote/105" for 127.0.0.1 at 2016-06-29 11:56:19 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"105", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 105]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('3' is not a valid quality):
+  app/models/idea.rb:7:in `thumbs_up'
+  app/controllers/api/v1/ideas_controller.rb:19:in `upvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.9ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (42.6ms)
+
+
+Started GET "/api/v1/upvote/105" for 127.0.0.1 at 2016-06-29 11:56:19 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"105", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 105]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('3' is not a valid quality):
+  app/models/idea.rb:7:in `thumbs_up'
+  app/controllers/api/v1/ideas_controller.rb:19:in `upvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.4ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (40.8ms)
+
+
+Started DELETE "/api/v1/ideas/94" for 127.0.0.1 at 2016-06-29 11:56:24 -0600
+Processing by Api::V1::IdeasController#destroy as JSON
+  Parameters: {"id"=>"94"}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 94]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ideas" WHERE "ideas"."id" = ?  [["id", 94]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 11:56:29 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"afdsdaf", "body"=>"fasdfasdfa"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'afdsdaf' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "afdsdaf"], ["body", "fasdfasdfa"], ["created_at", "2016-06-29 17:56:29.614978"], ["updated_at", "2016-06-29 17:56:29.614978"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 4.0ms)
+
+
+Started DELETE "/api/v1/ideas/114" for 127.0.0.1 at 2016-06-29 11:56:31 -0600
+Processing by Api::V1::IdeasController#destroy as JSON
+  Parameters: {"id"=>"114"}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 114]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ideas" WHERE "ideas"."id" = ?  [["id", 114]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 11:57:33 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 579ms (Views: 568.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ideas.self-4f1f804ed1a873ef82cb8b8a3a1b54a646f9bbc26828c24feb3d17b54a0a6fea.js?body=1" for 127.0.0.1 at 2016-06-29 11:57:34 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 11:57:34 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.3ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 16ms (Views: 13.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 11:57:37 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"adfasdf", "body"=>"adfdsafsdf"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.2ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'adfasdf' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "adfasdf"], ["body", "adfdsafsdf"], ["created_at", "2016-06-29 17:57:37.723524"], ["updated_at", "2016-06-29 17:57:37.723524"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Completed 200 OK in 34ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/v1/downvote/115" for 127.0.0.1 at 2016-06-29 11:57:39 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"115", "idea"=>{}}
+  [1m[36mIdea Load (0.3ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 115]]
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms)
+
+ArgumentError ('-1' is not a valid quality):
+  app/models/idea.rb:12:in `thumbs_down'
+  app/controllers/api/v1/ideas_controller.rb:24:in `downvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.1ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (46.0ms)
+
+
+Started GET "/api/v1/upvote/115" for 127.0.0.1 at 2016-06-29 11:57:39 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"115", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 115]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 1], ["updated_at", "2016-06-29 17:57:39.774775"], ["id", 115]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/api/v1/upvote/115" for 127.0.0.1 at 2016-06-29 11:57:40 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"115", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 115]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 2], ["updated_at", "2016-06-29 17:57:40.164293"], ["id", 115]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/v1/upvote/115" for 127.0.0.1 at 2016-06-29 11:57:40 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"115", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 115]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('3' is not a valid quality):
+  app/models/idea.rb:7:in `thumbs_up'
+  app/controllers/api/v1/ideas_controller.rb:19:in `upvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (41.2ms)
+
+
+Started GET "/api/v1/save/body_110?contents=Boddddy+body" for 127.0.0.1 at 2016-06-29 11:57:56 -0600
+Processing by Api::V1::IdeasController#save_text as */*
+  Parameters: {"contents"=>"Boddddy body", "id"=>"body_110"}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE ("ideas"."title" = 'Title' AND "ideas"."id" != 110) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "ideas" SET "body" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["body", "Boddddy body"], ["updated_at", "2016-06-29 17:57:56.346425"], ["id", 110]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/v1/save/title_110?contents=Title+of+Idea" for 127.0.0.1 at 2016-06-29 11:58:02 -0600
+Processing by Api::V1::IdeasController#save_text as */*
+  Parameters: {"contents"=>"Title of Idea", "id"=>"title_110"}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.1ms)[0m  SELECT  1 AS one FROM "ideas" WHERE ("ideas"."title" = 'Title of Idea' AND "ideas"."id" != 110) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "ideas" SET "title" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["title", "Title of Idea"], ["updated_at", "2016-06-29 17:58:02.588426"], ["id", 110]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 11:58:04 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('-1' is not a valid quality):
+  app/models/idea.rb:12:in `thumbs_down'
+  app/controllers/api/v1/ideas_controller.rb:24:in `downvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (42.5ms)
+
+
+Started GET "/api/v1/upvote/110" for 127.0.0.1 at 2016-06-29 11:58:05 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 1], ["updated_at", "2016-06-29 17:58:05.385615"], ["id", 110]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/upvote/110" for 127.0.0.1 at 2016-06-29 11:58:06 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 2], ["updated_at", "2016-06-29 17:58:06.272167"], ["id", 110]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 11:59:17 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 436ms (Views: 425.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-29 11:59:18 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-29 11:59:18 -0600
+
+
+Started GET "/assets/custom.self-e82526900dcfaa8c5d77c15ac79791518eed00506fad659e7768f1ae4b2480ef.css?body=1" for 127.0.0.1 at 2016-06-29 11:59:18 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-29 11:59:18 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-29 11:59:18 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-29 11:59:18 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-29 11:59:18 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-29 11:59:18 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-29 11:59:18 -0600
+
+
+Started GET "/assets/ideas.self-70214105b9509dc5d4212ea6c7d77209f8c5b0cd4cf1c45dedf59970a41d17bd.js?body=1" for 127.0.0.1 at 2016-06-29 11:59:18 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 11:59:18 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 11:59:24 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"afdsa", "body"=>"asdfasdfsd"}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.3ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'afdsa' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "afdsa"], ["body", "asdfasdfsd"], ["created_at", "2016-06-29 17:59:24.304651"], ["updated_at", "2016-06-29 17:59:24.304651"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 26ms (Views: 0.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/v1/upvote/116" for 127.0.0.1 at 2016-06-29 11:59:28 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"116", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 116]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 1], ["updated_at", "2016-06-29 17:59:28.533367"], ["id", 116]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/v1/save/body_116?contents=asdfasdfsd+fdasdfa%C2%A0" for 127.0.0.1 at 2016-06-29 11:59:31 -0600
+Processing by Api::V1::IdeasController#save_text as */*
+  Parameters: {"contents"=>"asdfasdfsd fdasdfa ", "id"=>"body_116"}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 116]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE ("ideas"."title" = 'afdsa' AND "ideas"."id" != 116) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "ideas" SET "body" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["body", "asdfasdfsd fdasdfa "], ["updated_at", "2016-06-29 17:59:31.827667"], ["id", 116]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/v1/downvote/116" for 127.0.0.1 at 2016-06-29 11:59:32 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"116", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 116]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 0], ["updated_at", "2016-06-29 17:59:32.765403"], ["id", 116]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/v1/save/body_116?contents=asdfasdfsd+fdasdfa+fdafsdadf" for 127.0.0.1 at 2016-06-29 11:59:35 -0600
+Processing by Api::V1::IdeasController#save_text as */*
+  Parameters: {"contents"=>"asdfasdfsd fdasdfa fdafsdadf", "id"=>"body_116"}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 116]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.2ms)[0m  SELECT  1 AS one FROM "ideas" WHERE ("ideas"."title" = 'afdsa' AND "ideas"."id" != 116) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "ideas" SET "body" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["body", "asdfasdfsd fdasdfa fdafsdadf"], ["updated_at", "2016-06-29 17:59:35.428618"], ["id", 116]]
+  [1m[35m (2.1ms)[0m  commit transaction
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/v1/upvote/116" for 127.0.0.1 at 2016-06-29 11:59:36 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"116", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 116]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 1], ["updated_at", "2016-06-29 17:59:36.292790"], ["id", 116]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/save/title_116?contents=afdsa+fadsd" for 127.0.0.1 at 2016-06-29 11:59:39 -0600
+Processing by Api::V1::IdeasController#save_text as */*
+  Parameters: {"contents"=>"afdsa fadsd", "id"=>"title_116"}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 116]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE ("ideas"."title" = 'afdsa fadsd' AND "ideas"."id" != 116) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "ideas" SET "title" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["title", "afdsa fadsd"], ["updated_at", "2016-06-29 17:59:39.710349"], ["id", 116]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/v1/downvote/116" for 127.0.0.1 at 2016-06-29 11:59:40 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"116", "idea"=>{}}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 116]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 0], ["updated_at", "2016-06-29 17:59:40.776118"], ["id", 116]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/v1/upvote/116" for 127.0.0.1 at 2016-06-29 11:59:41 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"116", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 116]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 1], ["updated_at", "2016-06-29 17:59:41.786495"], ["id", 116]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/api/v1/ideas/116" for 127.0.0.1 at 2016-06-29 11:59:44 -0600
+Processing by Api::V1::IdeasController#destroy as JSON
+  Parameters: {"id"=>"116"}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 116]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "ideas" WHERE "ideas"."id" = ?  [["id", 116]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/api/v1/ideas/115" for 127.0.0.1 at 2016-06-29 11:59:46 -0600
+Processing by Api::V1::IdeasController#destroy as JSON
+  Parameters: {"id"=>"115"}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 115]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ideas" WHERE "ideas"."id" = ?  [["id", 115]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/save/body_110?contents=body+body+body" for 127.0.0.1 at 2016-06-29 11:59:53 -0600
+Processing by Api::V1::IdeasController#save_text as */*
+  Parameters: {"contents"=>"body body body", "id"=>"body_110"}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mIdea Exists (0.2ms)[0m  SELECT  1 AS one FROM "ideas" WHERE ("ideas"."title" = 'Title of Idea' AND "ideas"."id" != 110) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "ideas" SET "body" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["body", "body body body"], ["updated_at", "2016-06-29 17:59:53.520970"], ["id", 110]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 11:59:55 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 1], ["updated_at", "2016-06-29 17:59:55.540207"], ["id", 110]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 11:59:55 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 0], ["updated_at", "2016-06-29 17:59:55.740593"], ["id", 110]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/upvote/110" for 127.0.0.1 at 2016-06-29 11:59:56 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 1], ["updated_at", "2016-06-29 17:59:56.988942"], ["id", 110]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/upvote/110" for 127.0.0.1 at 2016-06-29 11:59:57 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[36mIdea Load (0.3ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 2], ["updated_at", "2016-06-29 17:59:57.169312"], ["id", 110]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:01:50 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 114ms (Views: 113.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-29 12:01:50 -0600
+
+
+Started GET "/assets/custom.self-e82526900dcfaa8c5d77c15ac79791518eed00506fad659e7768f1ae4b2480ef.css?body=1" for 127.0.0.1 at 2016-06-29 12:01:50 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-29 12:01:50 -0600
+
+
+Started GET "/assets/ideas.self-e2d53aaf7f1a7f129213757bc0913a9d3df40ef0aded408251f7e21a1a8b474e.js?body=1" for 127.0.0.1 at 2016-06-29 12:01:50 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-29 12:01:50 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-29 12:01:50 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-29 12:01:50 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-29 12:01:50 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-29 12:01:50 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-29 12:01:50 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:02:33 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 112ms (Views: 110.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-29 12:02:34 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-29 12:02:34 -0600
+
+
+Started GET "/assets/custom.self-e82526900dcfaa8c5d77c15ac79791518eed00506fad659e7768f1ae4b2480ef.css?body=1" for 127.0.0.1 at 2016-06-29 12:02:34 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-29 12:02:34 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:34 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:34 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:34 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:34 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:34 -0600
+
+
+Started GET "/assets/ideas.self-e04f32dc8cc98f53202be6a81728ee78ee143beebc01cdec47229d7c950ceb7a.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:34 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 12:02:34 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (0.3ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC[0m
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/upvote/110" for 127.0.0.1 at 2016-06-29 12:02:36 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('3' is not a valid quality):
+  app/models/idea.rb:7:in `thumbs_up'
+  app/controllers/api/v1/ideas_controller.rb:19:in `upvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.1ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (48.0ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 12:02:38 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 1], ["updated_at", "2016-06-29 18:02:38.653804"], ["id", 110]]
+  [1m[35m (2.3ms)[0m  commit transaction
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 103ms (Views: 102.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+
+
+Started GET "/assets/custom.self-e82526900dcfaa8c5d77c15ac79791518eed00506fad659e7768f1ae4b2480ef.css?body=1" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+
+
+Started GET "/assets/ideas.self-87211e082d115ce52767b27709d89cfad6526dd69765a6771ecf34fddc7ea322.js?body=1" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 12:02:50 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC[0m
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/upvote/110" for 127.0.0.1 at 2016-06-29 12:02:52 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 2], ["updated_at", "2016-06-29 18:02:52.657327"], ["id", 110]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:02:52 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:03:52 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 93ms (Views: 92.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-29 12:03:53 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-29 12:03:53 -0600
+
+
+Started GET "/assets/custom.self-e82526900dcfaa8c5d77c15ac79791518eed00506fad659e7768f1ae4b2480ef.css?body=1" for 127.0.0.1 at 2016-06-29 12:03:53 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-29 12:03:53 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-29 12:03:53 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-29 12:03:53 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-29 12:03:53 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-29 12:03:53 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-29 12:03:53 -0600
+
+
+Started GET "/assets/ideas.self-b9b3faed144257ccdb9d3cb390f18fe6ccc5dca2d5ac52f5d967a9de6ae3c87b.js?body=1" for 127.0.0.1 at 2016-06-29 12:03:53 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 12:03:53 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 12:03:56 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 1], ["updated_at", "2016-06-29 18:03:56.690465"], ["id", 110]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 12:03:57 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 0], ["updated_at", "2016-06-29 18:03:57.394439"], ["id", 110]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 12:03:58 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('-1' is not a valid quality):
+  app/models/idea.rb:12:in `thumbs_down'
+  app/controllers/api/v1/ideas_controller.rb:24:in `downvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (39.4ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 12:03:58 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('-1' is not a valid quality):
+  app/models/idea.rb:12:in `thumbs_down'
+  app/controllers/api/v1/ideas_controller.rb:24:in `downvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.1ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (42.3ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 12:03:59 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('-1' is not a valid quality):
+  app/models/idea.rb:12:in `thumbs_down'
+  app/controllers/api/v1/ideas_controller.rb:24:in `downvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (40.4ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 12:04:00 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('-1' is not a valid quality):
+  app/models/idea.rb:12:in `thumbs_down'
+  app/controllers/api/v1/ideas_controller.rb:24:in `downvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.1ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (43.0ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 12:04:01 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 110]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('-1' is not a valid quality):
+  app/models/idea.rb:12:in `thumbs_down'
+  app/controllers/api/v1/ideas_controller.rb:24:in `downvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.3ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (41.4ms)
+
+
+Started GET "/api/v1/downvote/108" for 127.0.0.1 at 2016-06-29 12:04:02 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"108", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 108]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 1], ["updated_at", "2016-06-29 18:04:02.583296"], ["id", 108]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/v1/downvote/106" for 127.0.0.1 at 2016-06-29 12:04:03 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"106", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 106]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('-1' is not a valid quality):
+  app/models/idea.rb:12:in `thumbs_down'
+  app/controllers/api/v1/ideas_controller.rb:24:in `downvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.0ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (48.2ms)
+
+
+Started GET "/api/v1/downvote/105" for 127.0.0.1 at 2016-06-29 12:04:03 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"105", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 105]]
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 1], ["updated_at", "2016-06-29 18:04:03.810801"], ["id", 105]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:04:14 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:15 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:15 -0600
+
+
+Started GET "/assets/custom.self-e82526900dcfaa8c5d77c15ac79791518eed00506fad659e7768f1ae4b2480ef.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:15 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:15 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:15 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:15 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:15 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:15 -0600
+
+
+Started GET "/assets/ideas.self-70214105b9509dc5d4212ea6c7d77209f8c5b0cd4cf1c45dedf59970a41d17bd.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:15 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:15 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 12:04:15 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC[0m
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:04:23 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:24 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:24 -0600
+
+
+Started GET "/assets/custom.self-e82526900dcfaa8c5d77c15ac79791518eed00506fad659e7768f1ae4b2480ef.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:24 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:24 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:24 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:24 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:24 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:24 -0600
+
+
+Started GET "/assets/ideas.self-70214105b9509dc5d4212ea6c7d77209f8c5b0cd4cf1c45dedf59970a41d17bd.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:24 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:24 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 12:04:24 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:04:26 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 62ms (Views: 61.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:04:34 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 26ms (Views: 25.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:35 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:35 -0600
+
+
+Started GET "/assets/custom.self-e82526900dcfaa8c5d77c15ac79791518eed00506fad659e7768f1ae4b2480ef.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:35 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-29 12:04:35 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:35 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:35 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:35 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:35 -0600
+
+
+Started GET "/assets/ideas.self-70214105b9509dc5d4212ea6c7d77209f8c5b0cd4cf1c45dedf59970a41d17bd.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:35 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-29 12:04:35 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 12:04:35 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC[0m
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/downvote/110" for 127.0.0.1 at 2016-06-29 12:04:37 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+ArgumentError ('-1' is not a valid quality):
+  app/models/idea.rb:12:in `thumbs_down'
+  app/controllers/api/v1/ideas_controller.rb:24:in `downvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.2ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.6ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (47.5ms)
+
+
+Started GET "/api/v1/downvote/108" for 127.0.0.1 at 2016-06-29 12:04:38 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"108", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 108]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?[0m  [["quality", 0], ["updated_at", "2016-06-29 18:04:38.629880"], ["id", 108]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/downvote/106" for 127.0.0.1 at 2016-06-29 12:04:39 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"106", "idea"=>{}}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1[0m  [["id", 106]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+
+ArgumentError ('-1' is not a valid quality):
+  app/models/idea.rb:12:in `thumbs_down'
+  app/controllers/api/v1/ideas_controller.rb:24:in `downvote'
+
+
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.4ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.5ms)
+  Rendered /Users/Kami/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (39.5ms)
+
+
+Started GET "/api/v1/upvote/106" for 127.0.0.1 at 2016-06-29 12:04:39 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"106", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 106]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 1], ["updated_at", "2016-06-29 18:04:39.908374"], ["id", 106]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/v1/upvote/108" for 127.0.0.1 at 2016-06-29 12:04:40 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"108", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 108]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 1], ["updated_at", "2016-06-29 18:04:40.581157"], ["id", 108]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/upvote/110" for 127.0.0.1 at 2016-06-29 12:04:41 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"110", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 1], ["updated_at", "2016-06-29 18:04:41.166865"], ["id", 110]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/downvote/105" for 127.0.0.1 at 2016-06-29 12:04:41 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"105", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 105]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 0], ["updated_at", "2016-06-29 18:04:41.910114"], ["id", 105]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/downvote/101" for 127.0.0.1 at 2016-06-29 12:04:42 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"101", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 101]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 1], ["updated_at", "2016-06-29 18:04:42.482039"], ["id", 101]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/v1/upvote/101" for 127.0.0.1 at 2016-06-29 12:04:43 -0600
+Processing by Api::V1::IdeasController#upvote as */*
+  Parameters: {"id"=>"101", "idea"=>{}}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 101]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 2], ["updated_at", "2016-06-29 18:04:43.065805"], ["id", 101]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/v1/downvote/97" for 127.0.0.1 at 2016-06-29 12:04:43 -0600
+Processing by Api::V1::IdeasController#downvote as */*
+  Parameters: {"id"=>"97", "idea"=>{}}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 97]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "ideas" SET "quality" = ?, "updated_at" = ? WHERE "ideas"."id" = ?  [["quality", 1], ["updated_at", "2016-06-29 18:04:43.826523"], ["id", 97]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/api/v1/ideas/110" for 127.0.0.1 at 2016-06-29 12:04:47 -0600
+Processing by Api::V1::IdeasController#destroy as JSON
+  Parameters: {"id"=>"110"}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = ? LIMIT 1  [["id", 110]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "ideas" WHERE "ideas"."id" = ?  [["id", 110]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 12:05:49 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"super", "body"=>"camel"}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIdea Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'super' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "super"], ["body", "camel"], ["created_at", "2016-06-29 18:05:49.740505"], ["updated_at", "2016-06-29 18:05:49.740505"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-29 12:15:47 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 120ms (Views: 119.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-29 12:15:48 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-29 12:15:48 -0600
+
+
+Started GET "/assets/custom.self-e82526900dcfaa8c5d77c15ac79791518eed00506fad659e7768f1ae4b2480ef.css?body=1" for 127.0.0.1 at 2016-06-29 12:15:48 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-29 12:15:48 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-29 12:15:48 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-29 12:15:48 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-29 12:15:48 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-29 12:15:48 -0600
+
+
+Started GET "/assets/ideas.self-e0d8a3c9cc2612e485df771a1155e5d770d0d7ab94d6dbca6bae8fec999c3c2c.js?body=1" for 127.0.0.1 at 2016-06-29 12:15:48 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-29 12:15:48 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-29 12:15:51 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.2ms)
