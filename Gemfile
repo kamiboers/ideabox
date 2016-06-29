@@ -28,16 +28,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 gem 'unicorn'
+gem 'pry-rails'
+gem 'bootstrap-sass', '~> 3.3.5.1'
+gem 'responders', '~> 2.0' 
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'rspec/rails'
-  gem 'byebug'
-  gem 'capybara'
   gem 'launchy'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do

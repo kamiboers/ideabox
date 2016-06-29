@@ -1,0 +1,7 @@
+$('#new-idea').show();
+$("#new-idea").html("<%= escape_javascript(render 'edit') %>")
+$(".new-idea-btn").hide()
+$(".cancel-btn").click(function(){
+	$("#new-idea").hide();
+	$(".new-idea-btn").show();
+});
