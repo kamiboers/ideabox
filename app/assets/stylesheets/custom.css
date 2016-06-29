@@ -1,0 +1,38 @@
+#idea_body{
+	height: 100px;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.brand-title{
+	margin-left: -50px;
+	font-size: 50px;
+	font-weight: 200;
+}
+
+.new-title{
+	/*display:inline-block;*/
+	font-family: 'Montserrat', sans-serif;
+/*	transform:scale(1.5,1.5);
+	webkit-transform:scale(1,.51.5); 
+	moz-transform:scale(1.5,1.5);
+	ms-transform:scale(1.5,1.5);
+	o-transform:scale(1.5,1.5);*/
+	text-align: right;
+}
+
+
+
+#new-idea{
+	max-width: 95%;
+	background-color: #e6e6e6;
+	padding: 20px;
+	padding-top: 40px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+#create_idea{
+	height: 100px;
+	margin-top: -15px;
+}
