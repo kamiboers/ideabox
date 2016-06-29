@@ -80,8 +80,8 @@ function upvoteIdea(ideaId){
 	        url: '/api/v1/upvote/' + ideaId,
 	        contentType: 'application/json',
 	        success: function(idea) {
-	        	$("tr#idea_" + idea.id).remove();
-	        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td>" + idea.title + "</td><td>"  + jQuery.trim(idea.body).substring(0, 99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td></tr>");
+	        	$("tr#idea_" + idea.id).html("");
+	        	$("tr#idea_" + idea.id).html("<td>" + idea.title + "</td><td>"  + jQuery.trim(idea.body).substring(0, 99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td>");
 	        	}
 	        });
 	        }
@@ -92,8 +92,8 @@ function downvoteIdea(ideaId){
 	        url: '/api/v1/downvote/' + ideaId,
 	        contentType: 'application/json',
 	        success: function(idea) {
-	        	$("tr#idea_" + idea.id).remove();
-	        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td>" + idea.title + "</td><td>"  + jQuery.trim(idea.body).substring(0, 99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td></tr>");
+	        	$("tr#idea_" + idea.id).html("");
+	        	$("tr#idea_" + idea.id).html("<td>" + idea.title + "</td><td>"  + jQuery.trim(idea.body).substring(0, 99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td>");
 	        	}
 	        });
 	        }

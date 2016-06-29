@@ -10,15 +10,8 @@ class Api::V1::IdeasController < Api::V1::BaseController
   end
 
   def update
-    binding.pry
     @idea = Idea.find_by(id: params[:id])
-    if params[:change] == "thumbs-up"
-      @idea.thumbs-up
-    elsif params[:change] == "thumbs-down"
-      @idea.thumbs-up
-    else
-      render json: @idea.update!(idea_params)
-    end
+    render json: @idea.update!(idea_params)
   end
 
   def upvote
