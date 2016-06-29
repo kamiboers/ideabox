@@ -13,4 +13,10 @@ class Idea < ActiveRecord::Base
     return self
   end
 
+  def update_text(type, contents)
+    update_attributes!(title: contents) if type == "title"
+    update_attributes!(body: contents) if type == "body"
+    return self
+  end
+
 end

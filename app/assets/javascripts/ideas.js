@@ -11,7 +11,7 @@ $(document).ready(function() {
 	        url: '/api/v1/ideas',
 	        data: ideaAttributes,
 	        success: function(idea) {
-	        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td>" + idea.title + "</td><td>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td></tr>");
+	        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td></tr>");
 	        }
   		});
 
@@ -46,11 +46,80 @@ $('.idea-box').delegate('.downButton', 'click', function() {
     	downvoteIdea(ideaId);
   });
 
+
+
+// $('.idea-box').delegate('.editable', 'keydown', function(event){
+// 		  var esc = event.which == 27,
+// 		      nl = event.which == 13,
+// 		      el = event.target,
+// 		      input = el.nodeName != 'INPUT' && el.nodeName != 'TEXTAREA',
+// 		      data = {};
+
+// 	if (input) {
+//     if (esc) {
+//       // restore state
+//       document.execCommand('undo');
+//       el.blur();
+//     } else if (nl) {
+//       // save
+//       data[el.getAttribute('data-name')] = el.innerHTML;
+//       // we could send an ajax request to update the field
+
+//       $.ajax({
+//       	type: 'patch',
+//         url: '/api/v1/save/' + el.getAttribute('id'),
+//         data: data
+//       });
+      
+//       log(JSON.stringify(data));
+
+//       el.blur();
+//       event.preventDefault();
+//     }
+//   }
+// }, true);
+
+
+document.addEventListener('keydown', function (event) {
+  var esc = event.which == 27,
+      nl = event.which == 13,
+      el = event.target,
+      input = el.nodeName != 'INPUT' && el.nodeName != 'TEXTAREA',
+      data = {};
+
+  if (input) {
+    if (esc) {
+      // restore state
+      document.execCommand('undo');
+      el.blur();
+    } else if (nl) {
+      // save
+      data['contents'] = el.innerText;
+      // we could send an ajax request to update the field
+      
+        $.ajax({
+      	type: 'get',
+        url: '/api/v1/save/' + el.id,
+        data: data
+      });
+      
+      // log(JSON.stringify(data));
+
+      el.blur();
+      event.preventDefault();
+    }
+  }
+}, true);
+
+
 });
 
-
-
 // $('.idea-box').prepend('<%= j render partial: 'idea', locals: {idea: @idea} %>');
+
+// function log(s) {
+//   document.getElementById('debug').innerText = 'value changed to: ' + s;
+// }
+
 
 function getIdeas(){
 	$.ajax({
@@ -58,7 +127,7 @@ function getIdeas(){
 	        url: '/api/v1/ideas',
 	        success: function(ideas) {
 	        	ideas.forEach(function(idea){
-	        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td>" + idea.title + "</td><td>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td></tr>");
+	        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td></tr>");
 	        	});
 	        }
 	        });
@@ -81,7 +150,7 @@ function upvoteIdea(ideaId){
 	        contentType: 'application/json',
 	        success: function(idea) {
 	        	$("tr#idea_" + idea.id).html("");
-	        	$("tr#idea_" + idea.id).html("<td>" + idea.title + "</td><td>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td>");
+	        	$("tr#idea_" + idea.id).html("<td class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td>");
 	        	}
 	        });
 	        }
@@ -93,7 +162,7 @@ function downvoteIdea(ideaId){
 	        contentType: 'application/json',
 	        success: function(idea) {
 	        	$("tr#idea_" + idea.id).html("");
-	        	$("tr#idea_" + idea.id).html("<td>" + idea.title + "</td><td>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td>");
+	        	$("tr#idea_" + idea.id).html("<td class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'>up</button></td><td><button id='down_" + idea.id + "' class='btn downButton'>down</button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'>delete</button></td>");
 	        	}
 	        });
 	        }
@@ -101,3 +170,7 @@ function downvoteIdea(ideaId){
 String.prototype.trimToLength = function(limit) {
   return (this.length > limit) ? jQuery.trim(this).substring(0, limit).split(" ").slice(0, -1).join(" ") + "..." : this;
 };
+
+// String.prototype.displayer = function(){
+// 	return this.trimToLength(99)
+// }
