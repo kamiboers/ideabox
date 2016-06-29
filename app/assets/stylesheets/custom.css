@@ -11,14 +11,17 @@
 }
 
 .new-title{
+	font-size: 38px ;
+	font-weight: 300;
+	float: right;
+	margin-bottom: 11px;
+
 	/*display:inline-block;*/
-	font-family: 'Montserrat', sans-serif;
-/*	transform:scale(1.5,1.5);
+	/*transform:scale(1.5,1.5);
 	webkit-transform:scale(1,.51.5); 
 	moz-transform:scale(1.5,1.5);
 	ms-transform:scale(1.5,1.5);
 	o-transform:scale(1.5,1.5);*/
-	text-align: right;
 }
 
 
@@ -34,5 +37,5 @@
 
 #create_idea{
 	height: 100px;
-	margin-top: -15px;
+	margin-left: -18px;
 }
