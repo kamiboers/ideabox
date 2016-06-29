@@ -1,7 +1,8 @@
 class Api::V1::IdeasController < Api::V1::BaseController
 
   def index
-    render json: Idea.all
+    render json: Idea.order(created_at: :asc)
+
   end
 
   def create

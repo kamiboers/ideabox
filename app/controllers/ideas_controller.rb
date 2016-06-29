@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   respond_to :html
 
 def index
-  @ideas = Idea.order(updated_at: :desc)
+  @ideas = Idea.order(created_at: :asc)
   # @idea = Idea.new
 end
 
