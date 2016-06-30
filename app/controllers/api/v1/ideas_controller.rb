@@ -6,7 +6,10 @@ class Api::V1::IdeasController < Api::V1::BaseController
 
   def create
     idea = Idea.new(idea_params)
-      render json: idea if idea.save
+    if idea.save
+      IdeaTagAssociator.call(idea.id, params[:idea][:tag_names])
+      render json: idea
+    end
   end
 
   def update
@@ -34,10 +37,15 @@ class Api::V1::IdeasController < Api::V1::BaseController
     render json: @idea.destroy
   end
 
+  def tags
+    tags_list = Idea.find_by(id: params[:id]).tags.pluck(:name).join(",")
+    render json: { tags: tags_list }
+  end
+
   private
   
   def idea_params
-    params.require(:idea).permit(:title, :body)
+    params.require(:idea).permit(:title, :body, :tags)
   end
 
   def split_params
