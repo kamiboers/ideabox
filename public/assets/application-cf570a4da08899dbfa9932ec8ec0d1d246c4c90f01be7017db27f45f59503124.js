@@ -14779,10 +14779,6 @@ $(document).ready(function() {
 		downvoteIdea(ideaId);
 	});
 
-	// $('.idea-box').delegate('.get_tags', 'click', function() {
-	// 	var ideaId = $(this).attr('id').substr(5);
-	// 	returnTags(ideaId);
-	// });
 
 	$('.idea-box').on('mouseenter', '.get_tags', function( event ) {
     // do something
@@ -14831,7 +14827,7 @@ $(document).ready(function() {
 	$('.dropdown').delegate('.tag_group', 'click', function() {
 		var tag_name = $(this).attr('id');
 		if (tag_name == "all_ideas") {
-			$(".idea-box > tr").hide();	
+			$(".idea-box > tr").remove();	
 			getIdeas();
 		} else {
 		$.ajax({
@@ -14841,7 +14837,7 @@ $(document).ready(function() {
             tag: tag_name
         },
         success: function(data) {
-			$(".idea-box > tr").hide();	
+			$(".idea-box > tr").remove();	
         	data.forEach(function(idea){ 
         		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
 		});

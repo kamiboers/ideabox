@@ -66576,3 +66576,433 @@ Completed 200 OK in 16ms (Views: 10.9ms | ActiveRecord: 4.0ms)
   [1m[36mIdea Load (0.5ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC[0m
 Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.5ms)
 >>>>>>> 8885bfcd788f117eaa63a46af73d8430b2c99cae
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-30 02:56:14 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 556ms (Views: 536.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-30 02:56:15 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-30 02:56:15 -0600
+
+
+Started GET "/assets/custom.self-cad58bb977508cd9ebff6f5870ec3ebfc189633b8d795e53d8ad095b14fa688b.css?body=1" for 127.0.0.1 at 2016-06-30 02:56:15 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-30 02:56:15 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:15 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:15 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:15 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:15 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:15 -0600
+
+
+Started GET "/assets/ideas.self-c374e20342ef4c54585cc9df29140fa3c1c5f722da32f21715a2dbed0dce5d88.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:15 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:56:16 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (1.7ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 22ms (Views: 13.9ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/api/v1/get_tags" for 127.0.0.1 at 2016-06-30 02:56:16 -0600
+Processing by Api::V1::IdeasController#all_tags as */*
+  [1m[36m (0.3ms)[0m  [1mSELECT "tags"."name" FROM "tags"[0m
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/by_tag?tag=different" for 127.0.0.1 at 2016-06-30 02:56:35 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"different"}
+  [1m[35mIdea Load (0.9ms)[0m  SELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'different')
+Completed 200 OK in 40ms (Views: 37.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/v1/by_tag?tag=Tag+Bee+Sea" for 127.0.0.1 at 2016-06-30 02:56:36 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"Tag Bee Sea"}
+  [1m[36mIdea Load (1.1ms)[0m  [1mSELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'Tag Bee Sea')[0m
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/by_tag?tag=for" for 127.0.0.1 at 2016-06-30 02:56:38 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"for"}
+  [1m[35mIdea Load (0.7ms)[0m  SELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'for')
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/by_tag?tag=dog" for 127.0.0.1 at 2016-06-30 02:56:40 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"dog"}
+  [1m[36mIdea Load (0.8ms)[0m  [1mSELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'dog')[0m
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/by_tag?tag=for" for 127.0.0.1 at 2016-06-30 02:56:41 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"for"}
+  [1m[35mIdea Load (0.7ms)[0m  SELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'for')
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/by_tag?tag=different" for 127.0.0.1 at 2016-06-30 02:56:42 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"different"}
+  [1m[36mIdea Load (0.5ms)[0m  [1mSELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'different')[0m
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+
+
+Started GET "/assets/custom.self-cad58bb977508cd9ebff6f5870ec3ebfc189633b8d795e53d8ad095b14fa688b.css?body=1" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+
+
+Started GET "/assets/ideas.self-c374e20342ef4c54585cc9df29140fa3c1c5f722da32f21715a2dbed0dce5d88.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.3ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/get_tags" for 127.0.0.1 at 2016-06-30 02:56:44 -0600
+Processing by Api::V1::IdeasController#all_tags as */*
+  [1m[36m (0.2ms)[0m  [1mSELECT "tags"."name" FROM "tags"[0m
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/tags/17" for 127.0.0.1 at 2016-06-30 02:56:45 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"17"}
+  [1m[35mIdea Load (0.4ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36m (0.7ms)[0m  [1mSELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1[0m  [["idea_id", 17]]
+Completed 200 OK in 54ms (Views: 1.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/v1/tags/17" for 127.0.0.1 at 2016-06-30 02:56:45 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"17"}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36m (0.3ms)[0m  [1mSELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1[0m  [["idea_id", 17]]
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/by_tag?tag=different" for 127.0.0.1 at 2016-06-30 02:56:47 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"different"}
+  [1m[35mIdea Load (2.5ms)[0m  SELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'different')
+Completed 200 OK in 6ms (Views: 1.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/v1/by_tag?tag=Tag+Bee+Sea" for 127.0.0.1 at 2016-06-30 02:56:49 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"Tag Bee Sea"}
+  [1m[36mIdea Load (0.9ms)[0m  [1mSELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'Tag Bee Sea')[0m
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/by_tag?tag=for" for 127.0.0.1 at 2016-06-30 02:56:50 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"for"}
+  [1m[35mIdea Load (1.0ms)[0m  SELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'for')
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:56:57 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (1.5ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC[0m
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/v1/tags/13" for 127.0.0.1 at 2016-06-30 02:57:14 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"13"}
+  [1m[35mIdea Load (0.3ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36m (0.3ms)[0m  [1mSELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1[0m  [["idea_id", 13]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/tags/13" for 127.0.0.1 at 2016-06-30 02:57:15 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"13"}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36m (0.5ms)[0m  [1mSELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1[0m  [["idea_id", 13]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/tags/13" for 127.0.0.1 at 2016-06-30 02:57:15 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"13"}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1[0m  [["idea_id", 13]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/tags/13" for 127.0.0.1 at 2016-06-30 02:57:15 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"13"}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36m (0.4ms)[0m  [1mSELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1[0m  [["idea_id", 13]]
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/tags/13" for 127.0.0.1 at 2016-06-30 02:57:16 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"13"}
+  [1m[35mIdea Load (0.3ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1[0m  [["idea_id", 13]]
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/tags/13" for 127.0.0.1 at 2016-06-30 02:57:16 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"13"}
+  [1m[35mIdea Load (0.2ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1[0m  [["idea_id", 13]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/tags/13" for 127.0.0.1 at 2016-06-30 02:57:17 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"13"}
+  [1m[35mIdea Load (0.1ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1[0m  [["idea_id", 13]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/api/v1/ideas/13" for 127.0.0.1 at 2016-06-30 02:57:18 -0600
+Processing by Api::V1::IdeasController#destroy as JSON
+  Parameters: {"id"=>"13"}
+  [1m[35mIdea Load (0.3ms)[0m  SELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36mIdeaTag Load (0.2ms)[0m  [1mSELECT "idea_tags".* FROM "idea_tags" WHERE "idea_tags"."idea_id" = $1[0m  [["idea_id", 13]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "idea_tags" WHERE "idea_tags"."id" = $1[0m  [["id", 7]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "idea_tags" WHERE "idea_tags"."id" = $1  [["id", 8]]
+  [1m[36m (11.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mDELETE FROM "ideas" WHERE "ideas"."id" = $1[0m  [["id", 13]]
+  [1m[35m (6.1ms)[0m  COMMIT
+Completed 200 OK in 36ms (Views: 0.7ms | ActiveRecord: 20.0ms)
+
+
+Started POST "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:57:26 -0600
+Processing by Api::V1::IdeasController#create as JSON
+  Parameters: {"idea"=>{"title"=>"for", "body"=>"for", "tag_names"=>"for"}}
+Unpermitted parameter: tag_names
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mIdea Exists (0.5ms)[0m  SELECT  1 AS one FROM "ideas" WHERE "ideas"."title" = 'for' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "ideas" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "for"], ["body", "for"], ["created_at", "2016-06-30 08:57:26.304684"], ["updated_at", "2016-06-30 08:57:26.304684"]]
+  [1m[35m (5.7ms)[0m  COMMIT
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35mTag Load (1.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."name" = $1 LIMIT 1  [["name", "for"]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO "idea_tags" ("idea_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["idea_id", 18], ["tag_id", 5], ["created_at", "2016-06-30 08:57:26.327376"], ["updated_at", "2016-06-30 08:57:26.327376"]]
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 50ms (Views: 0.9ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/api/v1/by_tag?tag=real" for 127.0.0.1 at 2016-06-30 02:57:29 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"real"}
+  [1m[35mIdea Load (0.5ms)[0m  SELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'real')
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/by_tag?tag=for" for 127.0.0.1 at 2016-06-30 02:57:31 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"for"}
+  [1m[36mIdea Load (0.9ms)[0m  [1mSELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'for')[0m
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:57:36 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.8ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:58:00 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (1.7ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC[0m
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:58:21 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (1.5ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:58:26 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (1.2ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC[0m
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-30 02:58:55 -0600
+Processing by IdeasController#index as HTML
+  Rendered ideas/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 95ms (Views: 94.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/api/v1/ideas_controller.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-06-30 02:58:55 -0600
+
+
+Started GET "/assets/bootstrap_config.self-fa7e86526efe22f24cc9bd1224fbb999cf0bdb857cea5c92ed416fe408cb9e81.css?body=1" for 127.0.0.1 at 2016-06-30 02:58:55 -0600
+
+
+Started GET "/assets/custom.self-cad58bb977508cd9ebff6f5870ec3ebfc189633b8d795e53d8ad095b14fa688b.css?body=1" for 127.0.0.1 at 2016-06-30 02:58:55 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-06-30 02:58:55 -0600
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-06-30 02:58:55 -0600
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-06-30 02:58:55 -0600
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2016-06-30 02:58:55 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-06-30 02:58:55 -0600
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-06-30 02:58:55 -0600
+
+
+Started GET "/assets/ideas.self-62ce2f2d57d05a63253410891e2012c63e6201953d23bb9ec946af385f348bea.js?body=1" for 127.0.0.1 at 2016-06-30 02:58:55 -0600
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:58:56 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.6ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/get_tags" for 127.0.0.1 at 2016-06-30 02:58:56 -0600
+Processing by Api::V1::IdeasController#all_tags as */*
+  [1m[36m (0.3ms)[0m  [1mSELECT "tags"."name" FROM "tags"[0m
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:59:01 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.5ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/tags/18" for 127.0.0.1 at 2016-06-30 02:59:02 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mIdea Load (0.4ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35m (0.2ms)[0m  SELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1  [["idea_id", 18]]
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/tags/17" for 127.0.0.1 at 2016-06-30 02:59:03 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"17"}
+  [1m[36mIdea Load (0.1ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35m (0.1ms)[0m  SELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1  [["idea_id", 17]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/by_tag?tag=for" for 127.0.0.1 at 2016-06-30 02:59:11 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"for"}
+  [1m[36mIdea Load (1.1ms)[0m  [1mSELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'for')[0m
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/by_tag?tag=for" for 127.0.0.1 at 2016-06-30 02:59:12 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"for"}
+  [1m[35mIdea Load (0.6ms)[0m  SELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'for')
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/by_tag?tag=real" for 127.0.0.1 at 2016-06-30 02:59:14 -0600
+Processing by Api::V1::IdeasController#by_tag as */*
+  Parameters: {"tag"=>"real"}
+  [1m[36mIdea Load (0.6ms)[0m  [1mSELECT "ideas".* FROM "ideas" INNER JOIN "idea_tags" ON "idea_tags"."idea_id" = "ideas"."id" INNER JOIN "tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE (tags.name = 'real')[0m
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:59:19 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (0.5ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/tags/18" for 127.0.0.1 at 2016-06-30 02:59:21 -0600
+Processing by Api::V1::IdeasController#tags as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mIdea Load (0.2ms)[0m  [1mSELECT  "ideas".* FROM "ideas" WHERE "ideas"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  [1m[35m (0.3ms)[0m  SELECT "tags"."name" FROM "tags" INNER JOIN "idea_tags" ON "tags"."id" = "idea_tags"."tag_id" WHERE "idea_tags"."idea_id" = $1  [["idea_id", 18]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:59:22 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (0.3ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC[0m
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:59:23 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[35mIdea Load (2.2ms)[0m  SELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/v1/ideas" for 127.0.0.1 at 2016-06-30 02:59:25 -0600
+Processing by Api::V1::IdeasController#index as JSON
+  [1m[36mIdea Load (1.3ms)[0m  [1mSELECT "ideas".* FROM "ideas"  ORDER BY "ideas"."created_at" ASC[0m
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 1.3ms)
