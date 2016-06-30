@@ -24,7 +24,10 @@
 	o-transform:scale(1.5,1.5);*/
 }
 
-
+.tag_column {
+	max-width: 15%;
+	overflow-x: scroll;
+}
 
 #new-idea{
 	max-width: 95%;

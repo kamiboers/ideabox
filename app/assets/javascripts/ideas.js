@@ -5,15 +5,19 @@ $(document).ready(function() {
 	$('#create_idea').click(function() {
 		var title = $('#idea_title').val();
 		var body = $('#idea_body').val();
-		var ideaAttributes = { idea: { title: title, body: body } }
+		var tags = $('#idea_tags').val();
+		var ideaAttributes = { idea: { title: title, body: body, tag_names: tags } }
+		
 		$.ajax({
 			type: 'POST',
 			url: '/api/v1/ideas',
 			data: ideaAttributes,
 			success: function(idea) {
-				$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
+				$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>Show Tags</div></td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-primary upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-primary downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-danger deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
 			}
 		});
+
+
 
 	});
 
@@ -43,6 +47,21 @@ $(document).ready(function() {
 	$('.idea-box').delegate('.downButton', 'click', function() {
 		var ideaId = $(this).attr('id').substr(5);
 		downvoteIdea(ideaId);
+	});
+
+	// $('.idea-box').delegate('.get_tags', 'click', function() {
+	// 	var ideaId = $(this).attr('id').substr(5);
+	// 	returnTags(ideaId);
+	// });
+
+	$('.idea-box').on('mouseenter', '.get_tags', function( event ) {
+    // do something
+    	var ideaId = $(this).attr('id').substr(5);
+		returnTags(ideaId);
+	}).on('mouseleave', '.get_tags', function( event ) {
+    // do something different
+        var ideaId = $(this).attr('id').substr(5);
+    	$('#tags_'+ ideaId).html('Show Tags')
 	});
 
 	document.addEventListener('keydown', function (event) {
@@ -89,8 +108,25 @@ function getIdeas(){
 		url: '/api/v1/ideas',
 		success: function(ideas) {
 			ideas.forEach(function(idea){
-				$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
+				$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>Show Tags</div></td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-primary upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-primary downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-danger deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
 			});
+		}
+	});
+}
+
+function returnTags(ideaId){
+	$.ajax({
+		type: 'GET',
+		url: '/api/v1/tags/' + ideaId,
+		success: function(tags) {
+			// debugger;
+			$('#tags_'+ ideaId).html("");
+			// if clause for no tags
+			if ( tags.tags.length == 0 ) {
+				$('#tags_'+ ideaId).html('No Tags')
+			} else {
+				$('#tags_'+ ideaId).html(tags.tags)
+			}	
 		}
 	});
 }
@@ -112,7 +148,7 @@ function upvoteIdea(ideaId){
 		contentType: 'application/json',
 		success: function(idea) {
 			$("tr#idea_" + idea.id).html("");
-			$("tr#idea_" + idea.id).html("<td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td>");
+			$("tr#idea_" + idea.id).html("<td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>Show Tags</div></td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-primary upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-primary downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-danger deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td>");
 		}
 	});
 }
@@ -124,7 +160,7 @@ function downvoteIdea(ideaId){
 		contentType: 'application/json',
 		success: function(idea) {
 			$("tr#idea_" + idea.id).html("");
-			$("tr#idea_" + idea.id).html("<td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td>");
+			$("tr#idea_" + idea.id).html("<td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>Show Tags</div></td><td><div class='btn btn-primary'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-primary upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-primary downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-danger deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td>");
 		}
 	});
 }

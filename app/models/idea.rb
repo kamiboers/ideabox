@@ -1,5 +1,7 @@
 class Idea < ActiveRecord::Base
   has_many :idea_tags
+  has_many :tags, through: :idea_tags
+  
   validates :title, presence: true, uniqueness: true
   validates :body, presence: true
   enum quality: { swill: 0, plausible: 1, genius: 2 }

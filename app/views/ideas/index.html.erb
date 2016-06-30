@@ -13,7 +13,7 @@
 			</span>
 		<span class="col-md-1">
 		<button class="btn btn-primary btn-lg", id="create_idea">Save</button></span>
-		<span class="col-md-12"><%= text_field_tag :tags, nil, placeholder: "Tags (Optional)", class:"form-control form-control-lg" %>
+		<span class="col-md-12"><%= text_field_tag :idea_tags, nil, placeholder: "Tags (Optional)", class:"form-control form-control-lg" %>
 		</span>
 		</div>
 	</div>
@@ -24,7 +24,7 @@
 
 		<thead>
 			<tr>
-				<th width="15%">Title</th><th width="50%">Body</th><th>Quality</th><th>&nbsp;</th><th>&nbsp;</th>
+				<th width="15%">Title</th><th width="45%">Body</th><th class='tag_column' width="15%">Tags</th><th width="15%">Quality</th><th width="5%">&nbsp;</th><th width="5%">&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody class="idea-box"></tbody>
