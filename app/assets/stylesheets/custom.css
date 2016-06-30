@@ -5,7 +5,6 @@
 }
 
 .brand-title{
-	margin-left: -50px;
 	font-size: 50px;
 	font-weight: 200;
 }
@@ -15,6 +14,7 @@
 	font-weight: 300;
 	float: right;
 	margin-bottom: 11px;
+	color: #484848;
 
 	/*display:inline-block;*/
 	/*transform:scale(1.5,1.5);
@@ -29,6 +29,32 @@
 	overflow-x: scroll;
 }
 
+.btn-primary {
+	background-color: transparent;
+	font-size: 15px;
+	border-color: #1F4968;
+	color: #1F4968;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus {
+	border-color: #1F4968;
+	background-color: #e8efef;
+	color: #1F4968;
+}
+
+.btn-success {
+	background-color: transparent;
+	font-size: 15px;
+	border-color: #919191;
+	color: #919191;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success:active:focus {
+	border-color: #919191;
+	background-color: transparent;
+	color: black;
+}
+
 #new-idea{
 	max-width: 95%;
 	background-color: #f2f2f2;
@@ -41,4 +67,39 @@
 #create_idea{
 	height: 100px;
 	margin-left: -18px;
+}
+
+.idea-box {
+	font-size: 16px;
+}
+
+.q-butt {
+	width: 100px;
+}
+
+#tag_filter {
+	margin-left: -25px;
+	width: 150px;
+	border-color: #e6e6e6;
+}
+
+#tag_filter:active, #tag_filter:active:focus, #tag_filter:focus, #tag_filter:hover {
+	background-color: #e6e6e6;
+	border-color: #fafafa;
+}
+
+#searchbar {
+	margin-top: 5px;
+}
+
+.navbar {
+	background-color: #919191;
+	border-color: white;
+	margin-top: -2px;
+}
+
+.navbar-brand {
+	background-color: white;
+	border-top-right-radius: 15px;
+	color: #606060;
 }
