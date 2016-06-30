@@ -34,12 +34,22 @@ class Api::V1::IdeasController < Api::V1::BaseController
 
   def destroy
     @idea = Idea.find_by(id: params[:id])
+    @idea.idea_tags.destroy_all
     render json: @idea.destroy
   end
 
   def tags
     tags_list = Idea.find_by(id: params[:id]).tags.pluck(:name).join(",")
     render json: { tags: tags_list }
+  end
+
+  def all_tags
+    all_tags = Tag.all.pluck(:name)
+    render json: all_tags
+  end
+
+  def by_tag
+    render json: Idea.joins(:tags).where('tags.name = ?', params[:tag])
   end
 
   private

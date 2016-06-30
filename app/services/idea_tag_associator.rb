@@ -11,7 +11,7 @@ def self.call(idea_id, tags)
 end
 
 def self.find_or_create_tag_ids(tags)
-  tags.map { |tag| (Tag.find_or_create_by(name: tag)).id }
+  tags.map { |tag| (Tag.find_or_create_by(name: tag.strip)).id }
 end
 
 def self.create_idea_tags(tag_ids)

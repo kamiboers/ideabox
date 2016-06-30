@@ -14727,6 +14727,7 @@ if (typeof jQuery === 'undefined') {
 $(document).ready(function() {
 
 	getIdeas();
+	getTags();
 
 	$('#create_idea').click(function() {
 		var title = $('#idea_title').val();
@@ -14825,9 +14826,46 @@ $(document).ready(function() {
 		}
 		}
 	}, true);
+
+
+	$('.dropdown').delegate('.tag_group', 'click', function() {
+		var tag_name = $(this).attr('id');
+		if (tag_name == "all_ideas") {
+			$(".idea-box > tr").hide();	
+			getIdeas();
+		} else {
+		$.ajax({
+        type: 'get',
+        url: '/api/v1/by_tag',
+        data: {
+            tag: tag_name
+        },
+        success: function(data) {
+			$(".idea-box > tr").hide();	
+        	data.forEach(function(idea){ 
+        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
+		});
+        }
+    });
+}
+	});
+
+
 });
 
 
+
+function getTags(){
+	$.ajax({
+		type: 'GET',
+		url: '/api/v1/get_tags',
+		success: function(tags) {
+			tags.forEach(function(tag_name){
+				$('ul#tag_list').append("<li><a href='#' class='tag_group' id='" + tag_name + "'>" + tag_name + "</a></li>");
+			});
+		}
+	});
+}
 
 
 

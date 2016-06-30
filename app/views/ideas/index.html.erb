@@ -17,13 +17,16 @@
 		</span>
 		</div>
 	</div>
-	<div class="container">
+	<div class="container" id="drop-cont">
 	<div class="dropdown col-md-2">
   	<button class="btn btn-default dropdown-toggle" type="button" id="tag_filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     Existing Tags
     <span class="caret"></span>
   	</button>
-  	<ul class="dropdown-menu" id="tag_list" aria-labelledby="tag_list"></ul>
+  	<ul class="dropdown-menu" id="tag_list" aria-labelledby="tag_list">
+  		<li><a href='#' class='tag_group' id='all_ideas'>Show All Ideas</a></li>
+  		 <li role="separator" class="divider"></li>
+  	</ul>
 	</div>
 	<div class="col-md-2 col-md-offset-8"><input type="text" class="form-control" placeholder="Search" id="searchbar" onkeyup="filter(this)"></div>
 	</div>
