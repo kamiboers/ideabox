@@ -44,8 +44,7 @@ class Api::V1::IdeasController < Api::V1::BaseController
   end
 
   def all_tags
-    all_tags = Tag.all.pluck(:name)
-    render json: all_tags
+    render json: Tag.all.pluck(:name)
   end
 
   def by_tag

@@ -8,21 +8,17 @@ $(document).ready(function() {
 		var body = $('#idea_body').val();
 		var tags = $('#idea_tags').val();
 		var ideaAttributes = { idea: { title: title, body: body, tag_names: tags } }
-		
 		$.ajax({
 			type: 'POST',
 			url: '/api/v1/ideas',
 			data: ideaAttributes,
 			success: function(idea) {
 				$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
-			$('#idea_title').val("");
-			$('#idea_body').val("");
-		 	$('#idea_tags').val("");
+				$('#idea_title').val("");
+				$('#idea_body').val("");
+				$('#idea_tags').val("");
 			}
 		});
-
-
-
 	});
 
 	$('button.deleteButton').click(function(){
@@ -55,45 +51,36 @@ $(document).ready(function() {
 
 
 	$('.idea-box').on('mouseenter', '.get_tags', function( event ) {
-    // do something
-    	var ideaId = $(this).attr('id').substr(5);
-		returnTags(ideaId);
+		var ideaId = $(this).attr('id').substr(5);
+	returnTags(ideaId);
 	}).on('mouseleave', '.get_tags', function( event ) {
-    // do something different
-        var ideaId = $(this).attr('id').substr(5);
-    	$('#tags_'+ ideaId).html('show tags')
+		var ideaId = $(this).attr('id').substr(5);
+		$('#tags_'+ ideaId).html('show tags')
 	});
 
 	document.addEventListener('keydown', function (event) {
 		var esc = event.which == 27,
 		nl = event.which == 13,
 		el = event.target,
-		// off-click no worky
-		// oc = document.addEventListener('click', function(e) {
-		// 	return e.target !== el;
-		// }),
 		input = el.nodeName != 'INPUT' && el.nodeName != 'TEXTAREA',
 		data = {};
 
 		if (input) {
 			if (esc) {
-		// restore state
-		document.execCommand('undo');
-		el.blur();
-		// oc no worky
-		} else if (nl) {
-		// save
-		data['contents'] = el.innerText;
-
-		$.ajax({
-			type: 'get',
-			url: '/api/v1/save/' + el.id,
-			data: data
-		});
-
-		el.blur();
-		event.preventDefault();
-		}
+				// restore state
+				document.execCommand('undo');
+				el.blur();
+			} else if (nl) {
+				// save
+				data['contents'] = el.innerText;
+				$.ajax({
+					type: 'get',
+					url: '/api/v1/save/' + el.id,
+					data: data
+				});
+				el.blur();
+				event.preventDefault();
+			}
 		}
 	}, true);
 
@@ -104,26 +91,22 @@ $(document).ready(function() {
 			$(".idea-box > tr").remove();	
 			getIdeas();
 		} else {
-		$.ajax({
-        type: 'get',
-        url: '/api/v1/by_tag',
-        data: {
-            tag: tag_name
-        },
-        success: function(data) {
-			$(".idea-box > tr").remove();	
-        	data.forEach(function(idea){ 
-        		$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
-		});
-        }
-    });
-}
+			$.ajax({
+				type: 'get',
+				url: '/api/v1/by_tag',
+				data: {
+				tag: tag_name
+				},
+				success: function(data) {
+					$(".idea-box > tr").remove();	
+					data.forEach(function(idea){ 
+						$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
+					});
+				}
+			});
+		}
 	});
-
-
 });
-
-
 
 function getTags(){
 	$.ajax({
@@ -136,8 +119,6 @@ function getTags(){
 		}
 	});
 }
-
-
 
 function getIdeas(){
 	$.ajax({
@@ -156,9 +137,7 @@ function returnTags(ideaId){
 		type: 'GET',
 		url: '/api/v1/tags/' + ideaId,
 		success: function(tags) {
-			// debugger;
 			$('#tags_'+ ideaId).html("");
-			// if clause for no tags
 			if ( tags.tags.length == 0 ) {
 				$('#tags_'+ ideaId).html('No Tags')
 			} else {
@@ -203,20 +182,19 @@ function downvoteIdea(ideaId){
 }
 
 function filter(element) {
-        var value = $(element).val();
+	var value = $(element).val();
+	$('.idea-box > tr:not(:contains(' + value + '))').hide(); 
+	$('.idea-box > tr:contains(' + value + ')').show();	
+}
 
-        $('.idea-box > tr:not(:contains(' + value + '))').hide(); 
-		$('.idea-box > tr:contains(' + value + ')').show();	
-    }
 
-// editing doesn't display whole body
 String.prototype.trimToLength = function(limit) {
 	return (this.length > limit) ? jQuery.trim(this).substring(0, limit).split(" ").slice(0, -1).join(" ") + "..." : this;
 };
 
 jQuery.expr[':'].Contains = function(a, i, m) { 
-  return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0; 
+	return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0; 
 };
 jQuery.expr[':'].contains = function(a, i, m) { 
-  return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0; 
+	return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0; 
 };
