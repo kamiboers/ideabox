@@ -1,28 +1,43 @@
-== README
+# Ideabox 2.0
+[Project Spec](https://github.com/turingschool/curriculum/blob/master/source/projects/revenge_of_idea_box.markdown)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+------
 
-Things you may want to cover:
+# Basics
 
-* Ruby version
+### Link to the Github Repository for the Project
+[My Repo](http://github.com/kamiboers/ideabox)
 
-* System dependencies
+### Link to the Deployed Application
+[My Application](http://ideaboite.herokuapp.com/)
 
-* Configuration
+### Link to My Commits in the Github Repository for the Project
+[My Commits](https://github.com/kamiboers/ideabox/commits/master)
 
-* Database creation
+### Provide a Screenshot of your Application
+![screenshot, bonus screenhero](http://g.recordit.co/Ur0HbEaty0.gif)
 
-* Database initialization
+## Completion
 
-* How to run the test suite
+### Were you able to complete the base functionality?
+Yes.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Which extensions, if any, did you complete?
+Tagging.
 
-* Deployment instructions
+### Attach a .gif, or images of any extensions work being used on the site.
+![tagging](http://g.recordit.co/PGycRiTVAG.gif)
 
-* ...
+# Code Quality
 
+### Link to a specific block of your code on Github that you are proud of
+* Why were you proud of this piece of code?
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### Link to a specific block of your code on Github that you feel not great about
+* Why do you feel not awesome about the code? What challenges did you face trying to write/refactor it?
+
+### Attach a screenshot or paste the output from your terminal of the result of your test-suite running.
+![Yeah!](http://placekitten.com/400/300)
+### Provide a link to an example, if you have one, of a test that covers an 'edge case' or 'unhappy path'
+![Yup!](http://placekitten.com/300/200)
+-----
