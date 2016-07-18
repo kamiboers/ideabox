@@ -3,20 +3,20 @@ $(document).ready(function() {
 	getIdeas();
 	getTags();
 
+
+
 	$('#create_idea').click(function() {
-		var title = $('#idea_title').val();
-		var body = $('#idea_body').val();
-		var tags = $('#idea_tags').val();
-		var ideaAttributes = { idea: { title: title, body: body, tag_names: tags } }
+		var title = $('#idea_title');
+		var body = $('#idea_body');
+		var tags = $('#idea_tags');
+		var ideaAttributes = { idea: { title: title.val(), body: body.val(), tag_names: tags.val() } }
 		$.ajax({
 			type: 'POST',
 			url: '/api/v1/ideas',
 			data: ideaAttributes,
 			success: function(idea) {
-				$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
-				$('#idea_title').val("");
-				$('#idea_body').val("");
-				$('#idea_tags').val("");
+				prependFullRow(idea);
+				clearInputFields(title, body, tags);
 			}
 		});
 	});
@@ -32,25 +32,26 @@ $(document).ready(function() {
 		});  	
 	});
 
+	idea_list = $('.idea-box');
 
-	$('.idea-box').delegate('.deleteButton', 'click', function() {
+	idea_list.delegate('.deleteButton', 'click', function() {
 		var ideaId = $(this).attr('id').substr(5);
 		deleteIdea(ideaId);
 	});
 
-	$('.idea-box').delegate('.upButton', 'click', function() {
+	idea_list.delegate('.upButton', 'click', function() {
 		var ideaId = $(this).attr('id').substr(3);
 		upvoteIdea(ideaId);
 	});
 
 
-	$('.idea-box').delegate('.downButton', 'click', function() {
+	idea_list.delegate('.downButton', 'click', function() {
 		var ideaId = $(this).attr('id').substr(5);
 		downvoteIdea(ideaId);
 	});
 
 
-	$('.idea-box').on('mouseenter', '.get_tags', function( event ) {
+	idea_list.on('mouseenter', '.get_tags', function( event ) {
 		var ideaId = $(this).attr('id').substr(5);
 	returnTags(ideaId);
 	}).on('mouseleave', '.get_tags', function( event ) {
@@ -100,7 +101,7 @@ $(document).ready(function() {
 				success: function(data) {
 					$(".idea-box > tr").remove();	
 					data.forEach(function(idea){ 
-						$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
+						prependFullRow(idea);
 					});
 				}
 			});
@@ -126,8 +127,8 @@ function getIdeas(){
 		url: '/api/v1/ideas',
 		success: function(ideas) {
 			ideas.forEach(function(idea){
-				$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
-			});
+				prependFullRow(idea);
+ 			});
 		}
 	});
 }
@@ -163,8 +164,7 @@ function upvoteIdea(ideaId){
 		url: '/api/v1/upvote/' + ideaId,
 		contentType: 'application/json',
 		success: function(idea) {
-			$("tr#idea_" + idea.id).html("");
-			$("tr#idea_" + idea.id).html("<td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td>");
+			replaceRowContents(idea);
 		}
 	});
 }
@@ -175,8 +175,7 @@ function downvoteIdea(ideaId){
 		url: '/api/v1/downvote/' + ideaId,
 		contentType: 'application/json',
 		success: function(idea) {
-			$("tr#idea_" + idea.id).html("");
-			$("tr#idea_" + idea.id).html("<td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td>");
+			replaceRowContents(idea);	
 		}
 	});
 }
@@ -185,6 +184,22 @@ function filter(element) {
 	var value = $(element).val();
 	$('.idea-box > tr:not(:contains(' + value + '))').hide(); 
 	$('.idea-box > tr:contains(' + value + ')').show();	
+}
+
+function prependFullRow(idea){
+	idea_list.prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
+}
+
+function replaceRowContents(idea){
+	var idea_row = $("tr#idea_" + idea.id);
+	idea_row.html("");
+	idea_row.html("<td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td>");
+}
+
+function clearInputFields(title, body, tags){
+	title.val("");
+	body.val("");
+	tags.val("");
 }
 
 
