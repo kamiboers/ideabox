@@ -8,30 +8,8 @@ $(document).ready(function() {
 		var body = $('#idea_body').val();
 		var tags = $('#idea_tags').val();
 		var ideaAttributes = { idea: { title: title, body: body, tag_names: tags } }
-		$.ajax({
-			type: 'POST',
-			url: '/api/v1/ideas',
-			data: ideaAttributes,
-			success: function(idea) {
-				$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
-				$('#idea_title').val("");
-				$('#idea_body').val("");
-				$('#idea_tags').val("");
-			}
-		});
+		createIdea(ideaAttributes);
 	});
-
-	$('button.deleteButton').click(function(){
-		$.ajax({
-			type: 'DELETE',
-			url: '/api/v1/idea/:id',
-			data: {id: '82'},
-			success: function(){
-				$("tr#idea_" + idea.id).fadeOut('slow');
-			}
-		});  	
-	});
-
 
 	$('.idea-box').delegate('.deleteButton', 'click', function() {
 		var ideaId = $(this).attr('id').substr(5);
@@ -52,7 +30,7 @@ $(document).ready(function() {
 
 	$('.idea-box').on('mouseenter', '.get_tags', function( event ) {
 		var ideaId = $(this).attr('id').substr(5);
-	returnTags(ideaId);
+		showTags(ideaId);
 	}).on('mouseleave', '.get_tags', function( event ) {
 		var ideaId = $(this).attr('id').substr(5);
 		$('#tags_'+ ideaId).html('show tags')
@@ -67,12 +45,12 @@ $(document).ready(function() {
 
 		if (input) {
 			if (esc) {
-				// restore state
+				// restore state on 'esc'
 				document.execCommand('undo');
 				el.blur();
 			} else if (nl) {
-				// save
-				data['contents'] = el.innerText;
+				// save on 'enter'
+				data['prepend'] = el.innerText;
 				$.ajax({
 					type: 'get',
 					url: '/api/v1/save/' + el.id,
@@ -100,7 +78,7 @@ $(document).ready(function() {
 				success: function(data) {
 					$(".idea-box > tr").remove();	
 					data.forEach(function(idea){ 
-						$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
+						prependFullRow(idea);
 					});
 				}
 			});
@@ -126,23 +104,37 @@ function getIdeas(){
 		url: '/api/v1/ideas',
 		success: function(ideas) {
 			ideas.forEach(function(idea){
-				$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
+				prependFullRow(idea);
 			});
 		}
 	});
 }
 
-function returnTags(ideaId){
+function showTags(ideaId){
 	$.ajax({
 		type: 'GET',
 		url: '/api/v1/tags/' + ideaId,
 		success: function(tags) {
 			$('#tags_'+ ideaId).html("");
 			if ( tags.tags.length == 0 ) {
-				$('#tags_'+ ideaId).html('No Tags')
+				$('#tags_'+ ideaId).parent().html('( no tags )')
 			} else {
-				$('#tags_'+ ideaId).html(tags.tags)
+				$('#tags_'+ ideaId).parent().html(tags.tags.split(",").join(', '))
 			}	
+		}
+	});
+}
+
+function createIdea(ideaId){
+	$.ajax({
+		type: 'POST',
+		url: '/api/v1/ideas',
+		data: ideaAttributes,
+		success: function(idea) {
+			$('.idea-box').html(prependFullRow(idea));
+			$('#idea_title').val("");
+			$('#idea_body').val("");
+			$('#idea_tags').val("");
 		}
 	});
 }
@@ -163,8 +155,7 @@ function upvoteIdea(ideaId){
 		url: '/api/v1/upvote/' + ideaId,
 		contentType: 'application/json',
 		success: function(idea) {
-			$("tr#idea_" + idea.id).html("");
-			$("tr#idea_" + idea.id).html("<td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td>");
+			replaceRowContents(idea);
 		}
 	});
 }
@@ -175,8 +166,7 @@ function downvoteIdea(ideaId){
 		url: '/api/v1/downvote/' + ideaId,
 		contentType: 'application/json',
 		success: function(idea) {
-			$("tr#idea_" + idea.id).html("");
-			$("tr#idea_" + idea.id).html("<td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td>");
+			replaceRowContents(idea);
 		}
 	});
 }
@@ -185,6 +175,15 @@ function filter(element) {
 	var value = $(element).val();
 	$('.idea-box > tr:not(:contains(' + value + '))').hide(); 
 	$('.idea-box > tr:contains(' + value + ')').show();	
+}
+
+function prependFullRow(idea) {
+	$('.idea-box').prepend("<tr id='idea_" + idea.id + "'><td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td></tr>");
+}
+
+function replaceRowContents(idea) {
+	$("tr#idea_" + idea.id).html("");
+	$("tr#idea_" + idea.id).html("<td contentEditable='true' class='editable' id='title_" + idea.id + "'>" + idea.title + "</td><td contentEditable='true' class='editable' id='body_" + idea.id + "'>"  + idea.body.trimToLength(99) + "</td><td><div class='btn btn-primary get_tags' id='tags_" + idea.id + "'>show tags</div></td><td><div class='btn btn-primary q-butt'>" + idea.quality + "</div></td><td><button id='up_" + idea.id + "' class='btn btn-success upButton'><i class='fa fa-thumbs-o-up fa-2x'></i></button></td><td><button id='down_" + idea.id + "' class='btn btn-success downButton'><i class='fa fa-thumbs-o-down fa-2x'></i></button></td><td><button id='dele_" + idea.id + "' class='btn btn-success deleteButton'><i class='fa fa-times-circle-o fa-2x'></i></button></td>");
 }
 
 
